@@ -1,0 +1,19 @@
+{
+  "general": {
+    "TCPProtocol":      "tcp4",
+    "TCPPort":          ":8080",
+    "staticDirectory":  "./webroot/",
+    "logFile":          "/var/log/microweb.log",
+    "logVerbosity":     "verbose"
+  },
+
+  "tls": {
+    "enableTLS": false
+  },
+
+  "tune": {
+    "httpReadTimout":       "100ms",
+    "httpResponseTimeout":  "1s",
+    "cacheTTL":             "1s"
+  }
+}
