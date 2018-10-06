@@ -1,0 +1,47 @@
+//includes
+@import "../vendor/bootstrap-4.1.3/scss/functions";
+@import "../vendor/bootstrap-4.1.3/scss/variables";
+@import "../vendor/bootstrap-4.1.3/scss/mixins";
+@import "scss/common.scss";
+
+//more specific selector than bootstrap so we can override it.
+html {
+  body {
+    color: white;
+    background-color: #181d23;
+  }
+
+  .container {
+    border-radius: 0.25rem;
+  }
+
+  .container-fluid {
+    overflow: auto;
+  }
+
+  // area at top of page in which a nice little animation plays
+  #animationArea {
+    border-radius: 0.25rem;
+    width: 100%;
+    height: inherit;
+  }
+
+  @include media-breakpoint-up(xs) {
+    #animationArea {
+      height: 150px;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    #animationArea {
+      height: 200px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    #animationArea {
+      height: 250px;
+    }
+  }
+
+}

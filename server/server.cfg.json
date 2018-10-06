@@ -4,7 +4,8 @@
     "TCPPort":          ":8080",
     "staticDirectory":  "./webroot/",
     "logFile":          "/var/log/microweb.log",
-    "logVerbosity":     "verbose"
+    "logVerbosity":     "verbose",
+    "autoReloadSettings": false
   },
 
   "tls": {
@@ -15,5 +16,14 @@
     "httpReadTimout":       "100ms",
     "httpResponseTimeout":  "1s",
     "cacheTTL":             "1s"
+  },
+
+  "plugin": {
+    "plugins": [
+      {
+        "binding": "/index.gohtml",
+        "plugin": "./plugins/cv/cv.so"
+      }
+    ]
   }
 }

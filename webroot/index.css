@@ -1,0 +1,37 @@
+html .no-padding {
+  padding: 0px;
+}
+html .no-margin {
+  margin: 0px;
+}
+
+html body {
+  color: white;
+  background-color: #181d23;
+}
+html .container {
+  border-radius: 0.25rem;
+}
+html .container-fluid {
+  overflow: auto;
+}
+html #animationArea {
+  border-radius: 0.25rem;
+  width: 100%;
+  height: inherit;
+}
+html #animationArea {
+  height: 150px;
+}
+@media (min-width: 576px) {
+  html #animationArea {
+    height: 200px;
+  }
+}
+@media (min-width: 992px) {
+  html #animationArea {
+    height: 250px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
