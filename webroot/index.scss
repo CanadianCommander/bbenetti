@@ -1,18 +1,31 @@
-//includes
+//imports
+@import "scss/theme.scss";
+
+@import "../vendor/bootstrap-4.1.3/scss/bootstrap";
 @import "../vendor/bootstrap-4.1.3/scss/functions";
 @import "../vendor/bootstrap-4.1.3/scss/variables";
 @import "../vendor/bootstrap-4.1.3/scss/mixins";
+
 @import "scss/common.scss";
 
 //more specific selector than bootstrap so we can override it.
 html {
   body {
     color: white;
-    background-color: #181d23;
+    background-color: $dark;
+  }
+
+  div {
+    position:relative;
+  }
+
+  h1 {
+    font-family: serif;
   }
 
   .container {
     border-radius: 0.25rem;
+    margin-bottom: 0.30rem;
   }
 
   .container-fluid {
@@ -21,26 +34,91 @@ html {
 
   // area at top of page in which a nice little animation plays
   #animationArea {
+    display:block;
     border-radius: 0.25rem;
     width: 100%;
-    height: inherit;
   }
 
+  // circle portrait thing at top of page
+  .portrait {
+    position:absolute;
+
+    z-index: 1;
+    overflow: hidden;
+
+    margin: 0.2rem;
+    padding: 0.2rem;
+    border-radius: 100%;
+  }
+
+  .portrait-heading {
+    display:inline;
+    margin: 0;
+    text-align: left;
+  }
+
+
+  //dynamic settings by  display width
   @include media-breakpoint-up(xs) {
+    h1 {
+      font-size: 2.0rem;
+    }
+
     #animationArea {
-      height: 150px;
+      height: 200px;
+    }
+
+    .portrait {
+      left: 0px;
+      bottom: -40px;
+      width:125px;
+      height: 125px;
+    }
+
+    .portrait-heading {
+      padding-left: 110px;
     }
   }
 
   @include media-breakpoint-up(sm) {
+    h1 {
+      font-size: 2.25rem;
+    }
+
     #animationArea {
-      height: 200px;
+      height: 250px;
+    }
+
+    .portrait {
+      left: -25px;
+      bottom: -50px;
+      width:150px;
+      height: 150px;
+    }
+
+    .portrait-heading {
+      padding-left: 125px;
     }
   }
 
   @include media-breakpoint-up(lg) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
     #animationArea {
-      height: 250px;
+      height: 300px;
+    }
+
+    .portrait {
+      left: -50px;
+      bottom: -50px;
+      width: 200px;
+      height: 200px;
+    }
+
+    .portrait-heading {
+      padding-left: 130px;
     }
   }
 
