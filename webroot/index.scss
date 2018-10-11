@@ -35,8 +35,10 @@ html {
   // area at top of page in which a nice little animation plays
   #animationArea {
     display:block;
-    border-radius: 0.25rem;
+    border-radius: 5px;
     width: 100%;
+
+    cursor:crosshair;
   }
 
   // circle portrait thing at top of page
@@ -50,13 +52,6 @@ html {
     padding: 0.2rem;
     border-radius: 100%;
   }
-
-  .portrait-heading {
-    display:inline;
-    margin: 0;
-    text-align: left;
-  }
-
 
   //dynamic settings by  display width
   @include media-breakpoint-up(xs) {
@@ -74,10 +69,6 @@ html {
       width:125px;
       height: 125px;
     }
-
-    .portrait-heading {
-      padding-left: 110px;
-    }
   }
 
   @include media-breakpoint-up(sm) {
@@ -87,17 +78,13 @@ html {
 
     #animationArea {
       height: 250px;
-    } 
+    }
 
     .portrait {
       left: -25px;
       bottom: -50px;
       width:150px;
       height: 150px;
-    }
-
-    .portrait-heading {
-      padding-left: 125px;
     }
   }
 
@@ -115,10 +102,6 @@ html {
       bottom: -50px;
       width: 200px;
       height: 200px;
-    }
-
-    .portrait-heading {
-      padding-left: 130px;
     }
   }
 

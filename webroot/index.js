@@ -1,12 +1,17 @@
+import RenderController from '/script/canvasGraphics2d/RenderController.js'
+import GridEffect from '/script/effects/GridEffect.js'
 
-InitializeAnimation("#animationArea")
-function InitializeAnimation(elementName) {
-  var target = $(elementName);
-  if (target.length > 0) {
-    var ctx = target[0].getContext("2d");
-    ctx.fillStyle = `rgb(0,0,0)`;
-    ctx.fillRect(0,0,9999,9999);
-  } else {
-    console.log("Error: Element: " + elementName + " was not found in the DOM.");
-  }
+var primaryCanvas = $('#animationArea').get(0)
+var secondaryCanvas = $('#animationAreaBackBuffer').get(0)
+if (primaryCanvas !== undefined && secondaryCanvas !== undefined) {
+  var rController = new RenderController(primaryCanvas, secondaryCanvas)
+
+  // add animation objects
+  var GE = new GridEffect(0, 0, 1141, 301, 40, primaryCanvas, window)
+  GE.setGridBias(-10, -10)
+  rController.addGraphicObject(GE)
+
+  rController.startAnimation(60)
+} else {
+  console.error('Could not locate canvas for animation playback')
 }

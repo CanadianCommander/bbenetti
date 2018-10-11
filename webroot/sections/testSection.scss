@@ -1,0 +1,31 @@
+
+@import "../../vendor/bootstrap-4.1.3/scss/functions";
+@import "../../vendor/bootstrap-4.1.3/scss/variables";
+@import "../../vendor/bootstrap-4.1.3/scss/mixins";
+
+html {
+  .about-section-heading {
+    display:inline;
+    margin: 0;
+    text-align: left;
+  }
+
+  //dynamic settings by  display width
+  @include media-breakpoint-up(xs) {
+    .about-section-heading {
+      padding-left: 110px;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .about-section-heading {
+      padding-left: 125px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .about-section-heading {
+      padding-left: 130px;
+    }
+  }
+}
