@@ -1,5 +1,5 @@
 /**
-RenderController, controlls the rendering of the canvas identified by "targetCanvasName".
+RenderController, controlls the rendering operations on the canvas.
 **/
 export default class RenderController {
   /*
