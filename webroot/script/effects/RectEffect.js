@@ -18,7 +18,7 @@ export default class RectEffect extends GraphicObject(Position(Object)) {
 
     // draw rect
     ctx.beginPath()
-    ctx.rect(this.x, this.y, this.width, this.height)
+    ctx.rect(this.getX(), this.getY(), this.width, this.height)
     ctx.fill()
 
     ctx.restore()

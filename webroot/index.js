@@ -4,10 +4,8 @@ import GridEffect from '/script/effects/GridEffect.js'
 import RadialGradientEffect from '/script/effects/RadialGradientEffect.js'
 
 var primaryCanvas = $('#animationArea').get(0)
-var secondaryCanvas = $('#animationAreaBackBuffer').get(0)
-
-if (primaryCanvas !== undefined && secondaryCanvas !== undefined) {
-  var rController = new RenderController(primaryCanvas, secondaryCanvas)
+if (primaryCanvas !== undefined) {
+  var rController = new RenderController(primaryCanvas)
   var uController = new UpdateController()
 
   // create grid effect over entire screen
@@ -41,7 +39,7 @@ if (primaryCanvas !== undefined && secondaryCanvas !== undefined) {
     mouseHighlightEffect.setY(mouseY)
   })
 
-  rController.startAnimation(60)
+  rController.startAnimation()
   uController.startUpdating(60)
 } else {
   console.error('Could not locate canvas for animation playback')

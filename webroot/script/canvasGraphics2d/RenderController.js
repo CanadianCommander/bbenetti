@@ -4,15 +4,14 @@ RenderController, controlls the rendering operations on the canvas.
 **/
 export default class RenderController {
   /*
-  construct the render controller targeting the given canvas and canvasBackBuffer.
-  The first is the display canvas and the second is the back buffer (just use a hidden canvas)
+  construct the render controller targeting the given canvas.
   */
-  constructor (canvas, canvasBackBuffer) {
+  constructor (canvas) {
     this.rContext = canvas.getContext('2d')
-    this.rBackContext = canvasBackBuffer.getContext('2d')
     this.width = parseInt($(canvas).attr('width'))
     this.height = parseInt($(canvas).attr('height'))
     this.graphicObjects = []
+    this.isAnimating = false
 
     // OK, so some one fucked up, this site does a good job of explaining why this is needed (really bad design, but hey its JS, what did you expect)
     // http://usefulangle.com/post/17/html5-canvas-drawing-1px-crisp-straight-lines
@@ -27,41 +26,42 @@ export default class RenderController {
     this.graphicObjects.push(gObj)
   }
 
-  // startAnimation, starts refreshing the animation area, fps times a second.
-  startAnimation (fps) {
-    this.updateIntervalId = setInterval(
-      RenderController.prototype.update.bind(this), 1000 / fps)
+  // startAnimation, starts refreshing the animation area.
+  startAnimation () {
+    this.isAnimating = true
+    window.requestAnimationFrame(RenderController.prototype.update.bind(this))
   }
 
   // stopAnimation, stops refreshing the animation area
   stopAnimation () {
-    clearInterval(this.updateIntervalId)
+    this.isAnimating = false
   }
 
   // update, updates and renders graphics objects to the canvas.
   update () {
-    // TODO: do some back buffer swap N clear
-    this.rBackContext.fillStyle = 'rgb(0, 0, 0)'
-    this.rBackContext.fillRect(0, 0, this.width, this.height)
+    // clear screen
+    this.rContext.fillStyle = 'rgb(0, 0, 0)'
+    this.rContext.fillRect(0, 0, this.width, this.height)
 
     // TODO: sort graphic objects in Z order
 
     // render graphics objects
-    this.rBackContext.save()
-    util.applyMathJSMatrixToCanvas(this.rBackContext, this.baseMatrix)
+    this.rContext.save()
+    util.applyMathJSMatrixToCanvas(this.rContext, this.baseMatrix)
 
     this.graphicObjects.forEach((obj, i, arr) => {
-      this.rBackContext.save()
+      this.rContext.save()
 
-      obj.applyToCanvas(this.rBackContext)// apply object transforms
-      obj.draw(this.rBackContext)// draw
-      util.applyMathJSMatrixToCanvas(this.rBackContext, this.baseMatrix)// reset transformation
+      obj.applyToCanvas(this.rContext)// apply object transforms
+      obj.draw(this.rContext)// draw
+      util.applyMathJSMatrixToCanvas(this.rContext, this.baseMatrix)// reset transformation
 
-      this.rBackContext.restore()
+      this.rContext.restore()
     })
-    this.rBackContext.restore()
+    this.rContext.restore()
 
-    // buffer swap
-    this.rContext.putImageData(this.rBackContext.getImageData(0, 0, this.width, this.height), 0, 0)
+    if (this.isAnimating) {
+      window.requestAnimationFrame(RenderController.prototype.update.bind(this))
+    }
   }
 }
