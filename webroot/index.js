@@ -1,5 +1,5 @@
 import RenderController from '/script/canvasGraphics2d/RenderController.js'
-import UpdateController from '/script/physics/UpdateController.js'
+import UpdateController from '/script/logic/UpdateController.js'
 import GridEffect from '/script/effects/GridEffect.js'
 import RadialGradientEffect from '/script/effects/RadialGradientEffect.js'
 
@@ -16,8 +16,8 @@ if (primaryCanvas !== undefined && secondaryCanvas !== undefined) {
   rController.addGraphicObject(gridEffect)
 
   // corner lights
-  gridEffect.addHighlightEffect(new RadialGradientEffect(0, 300, 300, '#ff0000ff', '#ff000000'))
-  gridEffect.addHighlightEffect(new RadialGradientEffect(1141, 0, 300, '#aa0000ff', '#aa000000'))
+  gridEffect.addHighlightEffect(new RadialGradientEffect(0, 300, 300, '#5879adff', '#5879ad00'))
+  gridEffect.addHighlightEffect(new RadialGradientEffect(1141, 0, 300, '#48699dff', '#48699d00'))
 
   // mouse tracking highlight effect
   var mouseHighlightEffect = new RadialGradientEffect(0, 0, 100, '#5879adff', '#5879ad00')
@@ -29,6 +29,10 @@ if (primaryCanvas !== undefined && secondaryCanvas !== undefined) {
   $(window).on('mousemove', (event) => {
     mouseX = event.clientX - primaryCanvas.getBoundingClientRect().x
     mouseY = event.clientY - primaryCanvas.getBoundingClientRect().y
+  })
+  $(window).on('mouseout', (event) => {
+    mouseX = -999
+    mouseY = -999
   })
 
   // move highlight to follow mouse

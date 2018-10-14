@@ -1,3 +1,4 @@
+import * as util from '/script/util.js'
 /**
 RenderController, controlls the rendering operations on the canvas.
 **/
@@ -12,6 +13,10 @@ export default class RenderController {
     this.width = parseInt($(canvas).attr('width'))
     this.height = parseInt($(canvas).attr('height'))
     this.graphicObjects = []
+
+    // OK, so some one fucked up, this site does a good job of explaining why this is needed (really bad design, but hey its JS, what did you expect)
+    // http://usefulangle.com/post/17/html5-canvas-drawing-1px-crisp-straight-lines
+    this.baseMatrix = util.createTranslationMatrix(-0.5, -0.5)
   }
 
   getRenderContext () {
@@ -43,12 +48,16 @@ export default class RenderController {
 
     // render graphics objects
     this.rBackContext.save()
-    // OK, so some one fucked up, this site does a good job of explaining why this is needed (really bad design, but hey its JS, what did you expect)
-    // http://usefulangle.com/post/17/html5-canvas-drawing-1px-crisp-straight-lines
-    this.rBackContext.translate(-0.5, -0.5)
+    util.applyMathJSMatrixToCanvas(this.rBackContext, this.baseMatrix)
 
     this.graphicObjects.forEach((obj, i, arr) => {
-      obj.draw(this.rBackContext)
+      this.rBackContext.save()
+
+      obj.applyToCanvas(this.rBackContext)// apply object transforms
+      obj.draw(this.rBackContext)// draw
+      util.applyMathJSMatrixToCanvas(this.rBackContext, this.baseMatrix)// reset transformation
+
+      this.rBackContext.restore()
     })
     this.rBackContext.restore()
 

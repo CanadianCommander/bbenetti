@@ -6,23 +6,23 @@ const Position = base => class extends base {
   // directly passing x/y in to constructor is to hard.
   constructor () {
     super()
-    this.pos = new DOMPoint(0, 0, 0, 1)
+    this.pos = math.matrix([[0], [0], [1]])
   }
 
   setX (x) {
-    this.pos.x = x
+    this.pos = math.subset(this.pos, math.index(0, 0), x)
   }
 
   setY (y) {
-    this.pos.y = y
+    this.pos = math.subset(this.pos, math.index(1, 0), y)
   }
 
   getX () {
-    return this.pos.x
+    return math.subset(this.pos, math.index(0, 0))
   }
 
   getY () {
-    return this.pos.y
+    return math.subset(this.pos, math.index(1, 0))
   }
 
   getPoint () {

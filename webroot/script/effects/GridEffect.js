@@ -1,9 +1,9 @@
 import GraphicObject from '/script/canvasGraphics2d/GraphicObject.js'
-import Position from '/script/physics/Position.js'
-import * as util from '/script/canvasGraphics2d/util.js'
+import Position from '/script/logic/Position.js'
+import * as util from '/script/util.js'
 
 // grid effect configuration constants
-const GRID_LINE_COLOR = '#303030'
+const GRID_LINE_COLOR = '#101010'
 const GRID_FILL_COLOR = '#000000'
 const GRID_LINE_WIDTH = 2
 
