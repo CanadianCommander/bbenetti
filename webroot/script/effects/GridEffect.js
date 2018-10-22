@@ -117,13 +117,13 @@ export default class GridEffect extends GraphicObject(Position(Object)) {
     // draw grid X
     var startX = Math.ceil(this.getX() / this.spacing) * this.spacing + this.xBias
     for (var x = startX; x <= (this.getX() + this.width); x += this.spacing) {
-      util.lineTo(ctx, x, this.getY(), x, this.getY() + this.height)
+      util.drawLineTo(ctx, x, this.getY(), x, this.getY() + this.height)
     }
 
     // draw grid Y
     var startY = Math.ceil(this.getY() / this.spacing) * this.spacing + this.yBias
     for (var y = startY; y <= (this.getY() + this.height); y += this.spacing) {
-      util.lineTo(ctx, this.getX(), y, this.getX() + this.width, y)
+      util.drawLineTo(ctx, this.getX(), y, this.getX() + this.width, y)
     }
     ctx.stroke()
     ctx.restore()

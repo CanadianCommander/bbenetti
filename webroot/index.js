@@ -3,6 +3,10 @@ import UpdateController from '/script/logic/UpdateController.js'
 import GridEffect from '/script/effects/GridEffect.js'
 import RadialGradientEffect from '/script/effects/RadialGradientEffect.js'
 
+import RigidLine from '/script/physics/RigidLine.js'
+import CollidePoly from '/script/physics/CollidePoly.js'
+import * as util from '/script/util.js'
+
 var primaryCanvas = $('#animationArea').get(0)
 if (primaryCanvas !== undefined) {
   var rController = new RenderController(primaryCanvas)
@@ -20,6 +24,18 @@ if (primaryCanvas !== undefined) {
   // mouse tracking highlight effect
   var mouseHighlightEffect = new RadialGradientEffect(0, 0, 100, '#5879adff', '#5879ad00')
   gridEffect.addHighlightEffect(mouseHighlightEffect)
+
+  // collide poly for line REMOVE
+  var collidObj = new CollidePoly([
+    util.toPoint(0, 0), util.toPoint(0, 500), // left wall
+    util.toPoint(1141, 500), // bottom wall
+    util.toPoint(1141, 0), // right wall
+    util.toPoint(0, 0)])
+
+  // line REMOVE
+  var rigidLine = new RigidLine(math.matrix([[150], [150], [1]]), 0, 50, collidObj)
+  rController.addGraphicObject(rigidLine.getGraphicEffect())
+  uController.addUpdatable(rigidLine)
 
   // do mouse tracking
   var mouseX = -999

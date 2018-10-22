@@ -10,6 +10,11 @@ export default class UpdateController {
     this.tasks.set(task, task)
   }
 
+  addUpdatable (uObj) {
+    var ufunc = () => { uObj.update() }
+    this.addTask(ufunc)
+  }
+
   removeTaks (task) {
     this.delete(task)
   }

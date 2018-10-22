@@ -17,6 +17,10 @@ const Position = base => class extends base {
     this.pos = math.subset(this.pos, math.index(1, 0), y)
   }
 
+  setPosition (point) {
+    this.pos = point
+  }
+
   getX () {
     return math.subset(this.pos, math.index(0, 0))
   }
@@ -25,7 +29,7 @@ const Position = base => class extends base {
     return math.subset(this.pos, math.index(1, 0))
   }
 
-  getPoint () {
+  getPosition () {
     return this.pos
   }
 }
