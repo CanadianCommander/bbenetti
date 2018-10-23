@@ -6,7 +6,29 @@ export default class CollidablePoly extends Collidable(Object) {
     super()
 
     this.pointList = polyPoints
-    this.pointList.forEach((p, i) => this.pointList[i] = math.flatten(util.stripW(p)).toArray())
+  }
+
+  setPolyPoints (polyPoints) {
+    this.pointList = polyPoints
+  }
+
+  getPolyPoints () {
+    return this.pointList
+  }
+
+  /**
+  return point of collission or null if pOther does not collide with this.
+  param:
+    pOther: the other CollidablePoly Object with which to check for collission
+  **/
+  getCollissionPointWithOther (pOther) {
+    for (var i = 1; i < this.pointList.length; i++) {
+      var p = pOther.getCollissionPoint(this.pointList[i - 1], this.pointList[i])
+      if (p !== null) {
+        return p
+      }
+    }
+    return null
   }
 
   getCollissionPoint (rayStart, rayEnd) {
@@ -21,10 +43,6 @@ export default class CollidablePoly extends Collidable(Object) {
   }
 
   checkCollission (rayStart, rayEnd) {
-    // intersect wants flat arrays not matrices
-    rayStart = math.flatten(util.stripW(rayStart).toArray())
-    rayEnd = math.flatten(util.stripW(rayEnd).toArray())
-
     for (var i = 1; i < this.pointList.length; i++) {
       var intersectPoint = util.intersectLines(rayStart, rayEnd, this.pointList[i - 1], this.pointList[i])
       if (intersectPoint !== null) {

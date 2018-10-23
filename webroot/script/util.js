@@ -4,6 +4,10 @@ export function drawLineTo (ctx, x0, y0, x1, y1) {
   ctx.lineTo(x1, y1)
 }
 
+export function drawLineToP (ctx, p1, p2) {
+  drawLineTo(ctx, getPointX(p1), getPointY(p1), getPointX(p2), getPointY(p2))
+}
+
 export function applyMathJSMatrixToCanvas (ctx, mtx) {
   if (!mtx.isIdentity) {
     var row1 = math.flatten(math.subset(mtx, math.index(0, [0, 1, 2]))).toArray()
@@ -22,6 +26,14 @@ export function getPointX (point) {
 
 export function getPointY (point) {
   return math.subset(point, math.index(1, 0))
+}
+
+export function setPointX (point, x) {
+  return math.subset(point, math.index(0, 0), x)
+}
+
+export function setPointY (point, y) {
+  return math.subset(point, math.index(1, 0), y)
 }
 
 // set w value back to 1 (matrix math can mess it up)
@@ -50,6 +62,17 @@ export function createRotationMatrix (angle) {
 }
 
 export function intersectLines (startLine0, endLine0, startLine1, endLine1) {
+  // convert "matrix" vectors to "vector" vectors. MathJS makes a distinction between
+  // vectors and matrices (even though they are the same thing). This means that you cannot
+  // dot product a "matrix" vector, it must be a "vector" vector. I would just use a "vector" vector
+  // every where but, when you do matrix multiplication against a "vector" vector it becomes a "matrix" vector!
+  // so I will just hide "vector" vectors as much as possible. /rant/
+  startLine0 = math.flatten(stripW(startLine0).toArray())
+  endLine0 = math.flatten(stripW(endLine0).toArray())
+  startLine1 = math.flatten(stripW(startLine1).toArray())
+  endLine1 = math.flatten(stripW(endLine1).toArray())
+
+  // find intersection point of two lines
   var v = math.subtract(startLine1, startLine0)
   var l0 = math.subtract(endLine0, startLine0)
   var l1 = math.subtract(endLine1, startLine1)
@@ -67,6 +90,7 @@ export function intersectLines (startLine0, endLine0, startLine1, endLine1) {
     var line1MinY = math.min(startLine1[1], endLine1[1])
     var line1MaxY = math.max(startLine1[1], endLine1[1])
 
+    // make sure the intersection point is on the specified line segment.
     if (intersect[0] > line0MinX && intersect[0] < line0MaxX) {
       if (intersect[1] > line1MinY && intersect[1] < line1MaxY) {
         return intersect

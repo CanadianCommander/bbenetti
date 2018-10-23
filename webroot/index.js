@@ -33,7 +33,7 @@ if (primaryCanvas !== undefined) {
     util.toPoint(0, 0)])
 
   // line REMOVE
-  var rigidLine = new RigidLine(math.matrix([[150], [150], [1]]), 0, 50, collidObj)
+  var rigidLine = new RigidLine(math.matrix([[150], [150], [1]]), math.pi / 2, 50, 10, collidObj)
   rController.addGraphicObject(rigidLine.getGraphicEffect())
   uController.addUpdatable(rigidLine)
 

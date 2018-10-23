@@ -1,6 +1,10 @@
+import LineStripEffect from '../effects/LineStripEffect.js'
 import LineEffect from '../effects/LineEffect.js'
+import GraphicCollection from '../canvasGraphics2d/GraphicCollection.js'
+
 import Updatable from '../logic/Updatable.js'
 import Position from '../logic/Position.js'
+import CollideRect from './CollideRect.js'
 import * as util from '../util.js'
 
 export default class RigidLine extends Position(Updatable(Object)) {
@@ -11,23 +15,25 @@ export default class RigidLine extends Position(Updatable(Object)) {
     - length: the length of the line
     - collide: an object that implements Collidable. This is the object with which the RigidLine will collide.
   **/
-  constructor (pos, angle, length, collide) {
+  constructor (pos, angle, length, thickness, collide) {
     super()
     this.setPosition(pos)
     this.length = length
     this.rotationMtx = util.createRotationMatrix(angle)
 
-    this.translationalForce = math.matrix([[4], [0], [0]])
-    this.angularForce = math.pi / 200
+    this.translationalForce = math.matrix([[3], [0], [0]])
+    this.angularForce = math.pi / 100
     this.angle = angle
     this.collide = collide
+    this.thickness = thickness
 
+    this.hitBox = new LineStripEffect([], 1, 'rgb(0, 255, 0)')
     this.lineGfx = new LineEffect(0, 0, 0, 0, 1, 'rgb(255, 0, 0)')
     this.updateGraphicPosition()
   }
 
   getGraphicEffect () {
-    return this.lineGfx
+    return new GraphicCollection([this.lineGfx, this.hitBox])
   }
 
   getStartPoint () {
@@ -42,9 +48,12 @@ export default class RigidLine extends Position(Updatable(Object)) {
 
   // update the graphical representation of the object on screen
   updateGraphicPosition () {
+    var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
+      this.length, this.thickness, this.angle)
+    this.hitBox.setPointList(cRect.getPolyPoints())
+
     var startPoint = this.getStartPoint()
     var endPoint = this.getEndPoint()
-
     this.lineGfx.setStartPoint(startPoint)
     this.lineGfx.setEndPoint(endPoint)
   }
@@ -52,8 +61,11 @@ export default class RigidLine extends Position(Updatable(Object)) {
   update () {
     this.applyVelocity()
 
-    // do some magic
-    var collissionPoint = this.collide.getCollissionPoint(this.getStartPoint(), this.getEndPoint())
+    // build collission rect
+    var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
+      this.length, this.thickness, this.angle)
+
+    var collissionPoint = cRect.getCollissionPointWithOther(this.collide)
     if (collissionPoint !== null) {
       this.handleCollission(collissionPoint)
     }
@@ -68,7 +80,7 @@ export default class RigidLine extends Position(Updatable(Object)) {
   }
 
   handleCollission (collissionPoint) {
-    console.log('BAM at: ' + collissionPoint)
     this.translationalForce = math.add(this.translationalForce, math.multiply(this.translationalForce, -2.0))
+    this.angularForce = -this.angularForce
   }
 }
