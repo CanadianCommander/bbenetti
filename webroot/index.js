@@ -27,13 +27,13 @@ if (primaryCanvas !== undefined) {
 
   // collide poly for line REMOVE
   var collidObj = new CollidePoly([
-    util.toPoint(0, 0), util.toPoint(0, 500), // left wall
-    util.toPoint(1141, 500), // bottom wall
+    util.toPoint(0, 0), util.toPoint(0, 300), // left wall
+    util.toPoint(1141, 300), // bottom wall
     util.toPoint(1141, 0), // right wall
     util.toPoint(0, 0)])
 
   // line REMOVE
-  var rigidLine = new RigidLine(math.matrix([[150], [150], [1]]), math.pi / 2, 50, 10, collidObj)
+  var rigidLine = new RigidLine(math.matrix([[350], [100], [1]]), math.pi / 4, 50, 5, collidObj)
   rController.addGraphicObject(rigidLine.getGraphicEffect())
   uController.addUpdatable(rigidLine)
 

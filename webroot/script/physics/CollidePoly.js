@@ -17,21 +17,37 @@ export default class CollidablePoly extends Collidable(Object) {
   }
 
   /**
-  return point of collission or null if pOther does not collide with this.
+  like getCollissionPoints but finds collission point(s) between the two CollidePolies
   param:
     pOther: the other CollidablePoly Object with which to check for collission
+  return:
+    a list of lists of the format [[point, surface normal], [point, surface normal], ...]
   **/
-  getCollissionPointWithOther (pOther) {
+  getCollissionPointsWithOther (pOther) {
+    var cPoints = []
     for (var i = 1; i < this.pointList.length; i++) {
-      var p = pOther.getCollissionPoint(this.pointList[i - 1], this.pointList[i])
+      var p = pOther.getCollissionPoints(this.pointList[i - 1], this.pointList[i])
       if (p !== null) {
-        return p
+        cPoints = cPoints.concat(p)
       }
     }
-    return null
+
+    if (cPoints.length > 0) {
+      return cPoints
+    } else {
+      return null
+    }
   }
 
-  getCollissionPoint (rayStart, rayEnd) {
+  /*
+  get a list of collission points.
+  param:
+    rayStart: start of ray
+    rayEnd: end of ray
+  return:
+    a list of lists of the format [[point, surface normal], [point, surface normal], ...]
+  */
+  getCollissionPoints (rayStart, rayEnd) {
     return this.checkCollission(rayStart, rayEnd)
   }
 
@@ -43,13 +59,19 @@ export default class CollidablePoly extends Collidable(Object) {
   }
 
   checkCollission (rayStart, rayEnd) {
+    var cPoints = []
     for (var i = 1; i < this.pointList.length; i++) {
       var intersectPoint = util.intersectLines(rayStart, rayEnd, this.pointList[i - 1], this.pointList[i])
       if (intersectPoint !== null) {
-        return intersectPoint
+        cPoints.push([intersectPoint,
+          math.multiply(util.createRotationMatrix(math.pi / 2), math.subtract(this.pointList[i - 1], this.pointList[i]))])
       }
     }
 
-    return null
+    if (cPoints.length > 0) {
+      return cPoints
+    } else {
+      return null
+    }
   }
 }

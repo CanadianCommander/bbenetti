@@ -20,6 +20,11 @@ export function toPoint (x, y) {
   return math.matrix([[x], [y], [1]])
 }
 
+// convert mathjs "vector" vectors to "matrix" vectors. (a vector is a matrix in math but, not in mathjs I guess)
+export function vectorToPoint (v) {
+  return math.matrix([[v[0]], [v[1]], [1]])
+}
+
 export function getPointX (point) {
   return math.subset(point, math.index(0, 0))
 }
@@ -61,6 +66,18 @@ export function createRotationMatrix (angle) {
     [math.sin(angle), math.cos(angle), 0], [0, 0, 1]])
 }
 
+// return the "mean" point of a group of points. that is to say the point the is
+// in the middle of the group of points
+export function getMeanPoint (pointList) {
+  var n = pointList.length
+  var accPoint = toPoint(0, 0)
+  pointList.forEach((p) => {
+    accPoint = math.add(accPoint, math.multiply(p, 1.0 / n))
+  })
+
+  return accPoint
+}
+
 export function intersectLines (startLine0, endLine0, startLine1, endLine1) {
   // convert "matrix" vectors to "vector" vectors. MathJS makes a distinction between
   // vectors and matrices (even though they are the same thing). This means that you cannot
@@ -86,14 +103,22 @@ export function intersectLines (startLine0, endLine0, startLine1, endLine1) {
 
     var line0MinX = math.min(startLine0[0], endLine0[0])
     var line0MaxX = math.max(startLine0[0], endLine0[0])
+    var line0MinY = math.min(startLine0[1], endLine0[1])
+    var line0MaxY = math.max(startLine0[1], endLine0[1])
 
+    var line1MinX = math.min(startLine1[0], endLine1[0])
+    var line1MaxX = math.max(startLine1[0], endLine1[0])
     var line1MinY = math.min(startLine1[1], endLine1[1])
     var line1MaxY = math.max(startLine1[1], endLine1[1])
 
     // make sure the intersection point is on the specified line segment.
-    if (intersect[0] > line0MinX && intersect[0] < line0MaxX) {
-      if (intersect[1] > line1MinY && intersect[1] < line1MaxY) {
-        return intersect
+    if (intersect[0] >= line0MinX && intersect[0] <= line0MaxX) {
+      if (intersect[1] >= line0MinY && intersect[1] <= line0MaxY) {
+        if (intersect[0] >= line1MinX && intersect[0] <= line1MaxX) {
+          if (intersect[1] >= line1MinY && intersect[1] <= line1MaxY) {
+            return vectorToPoint(intersect)
+          }
+        }
       }
     }
   }
