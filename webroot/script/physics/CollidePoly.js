@@ -23,10 +23,10 @@ export default class CollidablePoly extends Collidable(Object) {
   return:
     a list of lists of the format [[point, surface normal], [point, surface normal], ...]
   **/
-  getCollissionPointsWithOther (pOther) {
+  getCollisionPointsWithOther (pOther) {
     var cPoints = []
     for (var i = 1; i < this.pointList.length; i++) {
-      var p = pOther.getCollissionPoints(this.pointList[i - 1], this.pointList[i])
+      var p = pOther.getCollisionPoints(this.pointList[i - 1], this.pointList[i])
       if (p !== null) {
         cPoints = cPoints.concat(p)
       }
@@ -47,7 +47,7 @@ export default class CollidablePoly extends Collidable(Object) {
   return:
     a list of lists of the format [[point, surface normal], [point, surface normal], ...]
   */
-  getCollissionPoints (rayStart, rayEnd) {
+  getCollisionPoints (rayStart, rayEnd) {
     return this.checkCollission(rayStart, rayEnd)
   }
 

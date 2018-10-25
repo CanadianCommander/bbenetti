@@ -33,12 +33,20 @@ export function getPointY (point) {
   return math.subset(point, math.index(1, 0))
 }
 
+export function getPointW (point) {
+  return math.subset(point, math.index(2, 0))
+}
+
 export function setPointX (point, x) {
   return math.subset(point, math.index(0, 0), x)
 }
 
 export function setPointY (point, y) {
   return math.subset(point, math.index(1, 0), y)
+}
+
+export function setPointW (point, w) {
+  return math.subset(point, math.index(2, 0), w)
 }
 
 // set w value back to 1 (matrix math can mess it up)
