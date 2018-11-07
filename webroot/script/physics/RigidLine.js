@@ -7,8 +7,8 @@ import Position from '../logic/Position.js'
 import CollideRect from './CollideRect.js'
 import * as util from '../util.js'
 
-// number of velocity updates to apply at MAX to get out of collission state
-// This setting is to prevent the browser from locking in the case of infinite collission
+// number of velocity updates to apply at MAX to get out of collision state
+// This setting is to prevent the browser from locking in the case of infinite collision
 const MAX_COLLISSION_BACKOUT = 1000
 export default class RigidLine extends Position(Updatable(Object)) {
   /**
@@ -30,14 +30,18 @@ export default class RigidLine extends Position(Updatable(Object)) {
     this.mass = mass
     this.collide = collide
     this.thickness = thickness
-    this.inertia = (mass)
+    this.inertia = (mass + length)
+    // true if we have collided with an object and are in the process
+    // of "un colliding" (moving away from the object). This goes to false
+    // once we have unmerged with the object.
+    this.isColliding = false
 
     this.textGfx = gfxEffect
     this.updateGraphicPosition()
   }
 
   getGraphicEffect () {
-    return new GraphicCollection([this.textGfx])
+    return this.textGfx
   }
 
   getStartPoint () {
@@ -54,42 +58,46 @@ export default class RigidLine extends Position(Updatable(Object)) {
   updateGraphicPosition () {
     this.textGfx.setPosition(this.getPosition())
     this.textGfx.setMatrix(
-      math.multiply( util.createTranslationMatrix(this.getX(), this.getY()),
+      math.multiply(util.createTranslationMatrix(this.getX(), this.getY()),
         math.multiply(this.rotationMtx, util.createTranslationMatrix(-this.getX(), -this.getY()))))
   }
 
-  update () {
-    this.applyVelocity()
+  update (ups) {
+    this.applyVelocity(ups)
 
-    // build collission rect
-    var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
-      this.length, this.thickness, this.angle)
+    if (this.isColliding) {
+      // don't re calculate physics we are most likely inside another object. just drift out.
+      cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
+        this.length, this.thickness, this.angle)
+      if (cRect.getCollisionPointsWithOther(this.collide) !== null) {
+        this.applyVelocity(ups)
+      } else {
+        this.isColliding = false
+      }
+    } else {
+      // check for collision and if collide calculate physics
+      var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
+        this.length, this.thickness, this.angle)
 
-    var collissionPoints = cRect.getCollisionPointsWithOther(this.collide)
-    if (collissionPoints !== null) {
-      var cPoint = util.getMeanPoint(collissionPoints.map((p) => p[0]))
-      var cNorm = util.getMeanPoint(collissionPoints.map((p) => p[1]))
+      var collissionPoints = cRect.getCollisionPointsWithOther(this.collide)
+      if (collissionPoints !== null) {
+        var cPoint = util.getMeanPoint(collissionPoints.map((p) => p[0]))
+        var cNorm = util.getMeanPoint(collissionPoints.map((p) => p[1]))
 
-      this.handleCollision(cPoint, this.calculateCollisionForce(cPoint, cNorm),
-      this.calculateCollisionAngularForce(cPoint, cNorm))
+        this.handleCollision(cPoint, this.calculateCollisionForce(cPoint, cNorm),
+        this.calculateCollisionAngularForce(cPoint, cNorm))
 
-      var iCollissionBackout = 0
-      while (cRect.getCollisionPointsWithOther(this.collide) !== null && iCollissionBackout < MAX_COLLISSION_BACKOUT) {
-        iCollissionBackout += 1
-
-        this.applyVelocity()
-        cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
-          this.length, this.thickness, this.angle)
+        this.isColliding = true
       }
     }
 
     this.updateGraphicPosition()
   }
 
-  applyVelocity () {
+  applyVelocity (ups) {
     // move
-    this.setPosition(math.add(this.getPosition(), math.multiply(this.translationalForce, 1.0 / this.mass)))
-    this.angle = this.angle + this.angularForce / (this.mass * this.length / 2)
+    this.setPosition(math.add(this.getPosition(), math.multiply(this.translationalForce, (1.0 / this.mass) * (1.0 / ups))))
+    this.angle = this.angle + (this.angularForce / (this.mass * this.length / 2)) * (1.0 / ups)
     this.rotationMtx = util.createRotationMatrix(this.angle)
   }
 

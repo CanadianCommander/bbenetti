@@ -3,6 +3,7 @@
 export default class UpdateController {
   constructor () {
     this.tasks = new Map([])
+    this.ups = 0
   }
 
   // add a new task to be run every update
@@ -11,7 +12,7 @@ export default class UpdateController {
   }
 
   addUpdatable (uObj) {
-    var ufunc = () => { uObj.update() }
+    var ufunc = (ups) => { uObj.update(ups) }
     this.addTask(ufunc)
   }
 
@@ -20,6 +21,7 @@ export default class UpdateController {
   }
 
   startUpdating (ups) {
+    this.ups = ups
     this.updateIntervalId = setInterval(
       UpdateController.prototype.update.bind(this), 1000 / ups)
   }
@@ -29,8 +31,8 @@ export default class UpdateController {
   }
 
   update () {
-    this.tasks.forEach((t, k, m) => {
-      t()
+    this.tasks.forEach((t) => {
+      t(this.ups)
     })
   }
 

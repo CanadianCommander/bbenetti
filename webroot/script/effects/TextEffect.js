@@ -1,25 +1,26 @@
 import GraphicObject from '../canvasGraphics2d/GraphicObject.js'
 import Position from '../logic/Position.js'
 
-export default class LineEffect extends GraphicObject(Position(Object)) {
+export default class TextEffect extends GraphicObject(Position(Object)) {
   /**
   params
     text: text to be displayed
     font: a CSS font size string like '20px monospace' or '12pt sansarif'
     color: CSS color string
-    x/y: possition of the center of the text.
+    x/y: position of the center of the text.
   **/
-  constructor (text, font, color, x, y) {
+  constructor (text, fontSize, fontFamily, color, x, y) {
     super()
     this.setX(x)
     this.setY(y)
     this.text = text
-    this.font = font
+    this.fontSize = fontSize
+    this.fontFamily = fontFamily
     this.color = color
     this.width = 0
   }
 
-  // return width of text. only valid after text has been measured or drawn atleast once.
+  // return width of text. only valid after text has been measured or drawn at least once.
   getTextWidth () {
     return this.width
   }
@@ -29,7 +30,7 @@ export default class LineEffect extends GraphicObject(Position(Object)) {
     ctx.save()
 
     ctx.fillStyle = this.color
-    ctx.font = this.font
+    ctx.font = this.fontSize + 'px ' + this.fontFamily
     var txtSize = ctx.measureText(this.text)
     this.width = txtSize.width
 
@@ -41,10 +42,10 @@ export default class LineEffect extends GraphicObject(Position(Object)) {
     ctx.save()
 
     ctx.fillStyle = this.color
-    ctx.font = this.font
+    ctx.font = this.fontSize + 'px ' + this.fontFamily
     var txtSize = ctx.measureText(this.text)
     this.width = txtSize.width
-    ctx.fillText(this.text, this.getX() - txtSize.width/2, this.getY())
+    ctx.fillText(this.text, this.getX() - txtSize.width / 2.0, this.getY() + this.fontSize / 2.0)
 
     ctx.restore()
   }

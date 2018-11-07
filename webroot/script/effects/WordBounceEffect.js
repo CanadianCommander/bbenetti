@@ -6,34 +6,36 @@ import TextEffect from './TextEffect.js'
 import * as util from '../util.js'
 
 export default class WordBounceEffect extends Updatable(Position(GraphicCollection)) {
-  constructor ( x, y, wordList, font, collideObj, updateController, renderController) {
+  constructor (x, y, wordList, fontSize, fontFamily, collideObj, updateController, renderController) {
     super()
     this.setX(x)
     this.setY(y)
     this.wList = wordList
     this.cObj = collideObj
-    this.font = font
+    this.fontSize = fontSize
+    this.fontFamily = fontFamily
     this.uController = updateController
     this.rController = renderController
     this.rigidLines = []
   }
 
-  update () {
+  update (ups) {
     // randomly create new text objects
-    if (math.randomInt(0, 256) == 1) {
-      //spawn new word
+    if (math.randomInt(0, 128) == 1) {
+      // spawn new word
       var word = math.pickRandom(this.wList)
-      var gfx = new TextEffect(word, this.font , "#ffffff", 100, 100)
-      var rigidLine = new  RigidLine(math.matrix([[math.random(100, 1000)], [math.random(50,250)], [1]]), math.random(0, math.pi*2),
-        util.measureText(word, this.font, this.rController.getRenderContext()).width, 5, this.cObj, gfx)
-      rigidLine.applyForce(math.matrix([[math.random(-100, 100)],[math.random(-100, 100)],[0]]))
+      var randRGB = 'rgb(' + math.randomInt(0, 256) + ',' + math.randomInt(0, 256) + ',' + math.randomInt(0, 256) + ')'
+      var gfx = new TextEffect(word, this.fontSize, this.fontFamily, randRGB, 100, 100)
+      var rigidLine = new RigidLine(math.matrix([[math.random(100, 1000)], [math.random(50, 250)], [1]]), math.random(0, math.pi * 2),
+        util.measureText(word, this.fontSize + 'px ' + this.fontFamily, this.rController.getRenderContext()).width, 5, this.cObj, gfx)
+      rigidLine.applyForce(math.matrix([[math.random(-6000, 6000)], [math.random(-6000, 6000)], [0]]))
 
       this.rigidLines.push(rigidLine)
-      this.add(gfx)
+      this.add(rigidLine.getGraphicEffect())
     }
 
     // update all text objects
-    this.rigidLines.forEach((l) => l.update())
+    this.rigidLines.forEach((l) => l.update(ups))
   }
 
   draw (ctx) {

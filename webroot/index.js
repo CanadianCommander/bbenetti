@@ -1,8 +1,8 @@
-//control
+// control
 import RenderController from '/script/canvasGraphics2d/RenderController.js'
 import UpdateController from '/script/logic/UpdateController.js'
 
-//graphic
+// graphic
 import GridEffect from '/script/effects/GridEffect.js'
 import RadialGradientEffect from '/script/effects/RadialGradientEffect.js'
 import TextEffect from '/script/effects/TextEffect.js'
@@ -12,7 +12,7 @@ import WordBounceEffect from '/script/effects/WordBounceEffect.js'
 import RigidLine from '/script/physics/RigidLine.js'
 import CollidePoly from '/script/physics/CollidePoly.js'
 
-//misc
+// misc
 import * as util from '/script/util.js'
 
 var primaryCanvas = $('#animationArea').get(0)
@@ -41,7 +41,11 @@ if (primaryCanvas !== undefined) {
     util.toPoint(0, 0)])
 
   // word bounce effect
-  var wBouncer = new WordBounceEffect(1141/2, 300/2, ['C++', 'C', 'JS', 'BearMetal'], "20px monospace",
+  var techList = ['C++', 'Go', 'C', 'Scala', 'Python', 'JS', 'Java', 'SQL', 'Bash', 'ARMv7',
+    'BearMetal', 'Linux', 'MacOs', 'Terminal', 'FullStack', 'Server', 'Desktop', 'Web', 'Tensorflow',
+    'RedHat', 'OpenGL', 'GUI', 'IoT', 'Networking', 'Threading', 'OO-Design', 'CLI',
+    'VM', 'Cloud', 'RemoteAdmin', 'git']
+  var wBouncer = new WordBounceEffect(1141 / 2, 300 / 2, techList, 30, 'Monospace',
     collidObj, uController, rController)
   rController.addGraphicObject(wBouncer)
   uController.addUpdatable(wBouncer)
@@ -65,7 +69,7 @@ if (primaryCanvas !== undefined) {
   })
 
   rController.startAnimation()
-  uController.startUpdating(60)
+  uController.startUpdating(24)
 } else {
   console.error('Could not locate canvas for animation playback')
 }

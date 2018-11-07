@@ -6,7 +6,7 @@ const Updatable = base => class extends base {
     super()
   }
 
-  update () {
+  update (ups) {
     // update here
   }
 }
