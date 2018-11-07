@@ -1,10 +1,18 @@
+//control
 import RenderController from '/script/canvasGraphics2d/RenderController.js'
 import UpdateController from '/script/logic/UpdateController.js'
+
+//graphic
 import GridEffect from '/script/effects/GridEffect.js'
 import RadialGradientEffect from '/script/effects/RadialGradientEffect.js'
+import TextEffect from '/script/effects/TextEffect.js'
+import WordBounceEffect from '/script/effects/WordBounceEffect.js'
 
+// physics
 import RigidLine from '/script/physics/RigidLine.js'
 import CollidePoly from '/script/physics/CollidePoly.js'
+
+//misc
 import * as util from '/script/util.js'
 
 var primaryCanvas = $('#animationArea').get(0)
@@ -25,17 +33,18 @@ if (primaryCanvas !== undefined) {
   var mouseHighlightEffect = new RadialGradientEffect(0, 0, 100, '#5879adff', '#5879ad00')
   gridEffect.addHighlightEffect(mouseHighlightEffect)
 
-  // collide poly for line REMOVE
+  // collide poly for word bounce effect
   var collidObj = new CollidePoly([
     util.toPoint(0, 0), util.toPoint(0, 300), // left wall
     util.toPoint(1141, 300), // bottom wall
     util.toPoint(1141, 0), // right wall
     util.toPoint(0, 0)])
 
-  // line REMOVE
-  var rigidLine = new RigidLine(math.matrix([[350], [100], [1]]), -math.pi / 4, 100, 5, collidObj)
-  rController.addGraphicObject(rigidLine.getGraphicEffect())
-  uController.addUpdatable(rigidLine)
+  // word bounce effect
+  var wBouncer = new WordBounceEffect(1141/2, 300/2, ['C++', 'C', 'JS', 'BearMetal'], "20px monospace",
+    collidObj, uController, rController)
+  rController.addGraphicObject(wBouncer)
+  uController.addUpdatable(wBouncer)
 
   // do mouse tracking
   var mouseX = -999

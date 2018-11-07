@@ -133,3 +133,13 @@ export function intersectLines (startLine0, endLine0, startLine1, endLine1) {
 
   return null
 }
+
+// returns textMetrics object for th given text + font + context combination.
+export function measureText (text, font, ctx) {
+  ctx.save()
+  ctx.font = font
+  var txtSize = ctx.measureText(text)
+  ctx.restore()
+
+  return txtSize
+}

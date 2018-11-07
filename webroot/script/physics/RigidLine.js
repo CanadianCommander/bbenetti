@@ -18,27 +18,26 @@ export default class RigidLine extends Position(Updatable(Object)) {
     - length: the length of the line
     - collide: an object that implements Collidable. This is the object with which the RigidLine will collide.
   **/
-  constructor (pos, angle, length, thickness, collide, mass = 100) {
+  constructor (pos, angle, length, thickness, collide, gfxEffect, mass = 100) {
     super()
     this.setPosition(pos)
     this.length = length
     this.rotationMtx = util.createRotationMatrix(angle)
 
-    this.translationalForce = math.matrix([[200], [200], [0]])
+    this.translationalForce = math.matrix([[0], [0], [0]])
     this.angularForce = 0
     this.angle = angle
     this.mass = mass
     this.collide = collide
     this.thickness = thickness
-    this.inertia = ((length / 2) * (thickness / 2))
+    this.inertia = (mass)
 
-    this.hitBox = new LineStripEffect([], 1, 'rgb(0, 255, 0)')
-    this.lineGfx = new LineEffect(0, 0, 0, 0, 1, 'rgb(255, 0, 0)')
+    this.textGfx = gfxEffect
     this.updateGraphicPosition()
   }
 
   getGraphicEffect () {
-    return new GraphicCollection([this.lineGfx, this.hitBox])
+    return new GraphicCollection([this.textGfx])
   }
 
   getStartPoint () {
@@ -53,14 +52,10 @@ export default class RigidLine extends Position(Updatable(Object)) {
 
   // update the graphical representation of the object on screen
   updateGraphicPosition () {
-    var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
-      this.length, this.thickness, this.angle)
-    this.hitBox.setPointList(cRect.getPolyPoints())
-
-    var startPoint = this.getStartPoint()
-    var endPoint = this.getEndPoint()
-    this.lineGfx.setStartPoint(startPoint)
-    this.lineGfx.setEndPoint(endPoint)
+    this.textGfx.setPosition(this.getPosition())
+    this.textGfx.setMatrix(
+      math.multiply( util.createTranslationMatrix(this.getX(), this.getY()),
+        math.multiply(this.rotationMtx, util.createTranslationMatrix(-this.getX(), -this.getY()))))
   }
 
   update () {
@@ -98,6 +93,11 @@ export default class RigidLine extends Position(Updatable(Object)) {
     this.rotationMtx = util.createRotationMatrix(this.angle)
   }
 
+  // apply force vector to the rigid line
+  applyForce (f) {
+    this.translationalForce = math.add(this.translationalForce, f)
+  }
+
   calculateCollisionForce (collissionPoint, surfaceNormal) {
     var snFlat = math.flatten(surfaceNormal).toArray()
     var sn = math.divide(math.abs(surfaceNormal), math.norm(snFlat))
@@ -111,9 +111,9 @@ export default class RigidLine extends Position(Updatable(Object)) {
     var line = math.flatten(math.subtract(this.getEndPoint(), this.getStartPoint())).toArray()
 
     var lineProj = math.multiply(math.dot(rP, line) / math.dot(line, line), line)
-    var lineNorm = math.multiply(util.createRotationMatrix(-math.pi / 2), util.vectorToPoint(math.divide(lineProj, math.norm(lineProj))))
+    var lineNorm = math.multiply(util.createRotationMatrix(math.pi / 2), util.vectorToPoint(math.divide(lineProj, math.norm(lineProj))))
 
-    var vAF = util.setPointW(math.multiply(lineNorm, -1.0 * this.angularForce), 0)
+    var vAF = util.setPointW(math.multiply(lineNorm, 1.0 * this.angularForce), 0)
 
     return vAF
   }
