@@ -25,6 +25,11 @@ export default class TextEffect extends GraphicObject(Position(Object)) {
     return this.width
   }
 
+  // REALLY SHOULD BE IN GENERIC INTERFACE
+  setColor (c) {
+    this.color = c
+  }
+
   // measure text width using the given graphics context
   measureText (ctx) {
     ctx.save()

@@ -41,10 +41,11 @@ if (primaryCanvas !== undefined) {
     util.toPoint(0, 0)])
 
   // word bounce effect
-  var techList = ['C++', 'Go', 'C', 'Scala', 'Python', 'JS', 'Java', 'SQL', 'Bash', 'ARMv7',
-    'BearMetal', 'Linux', 'MacOs', 'Terminal', 'FullStack', 'Server', 'Desktop', 'Web', 'Tensorflow',
+  var techList = ['C++', 'Go', 'C', 'Scala', 'Python', 'JS', 'Java', 'SQL', 'Bash', 'ARMv7', 'asm',
+    'BareMetal', 'Linux', 'MacOs', 'Terminal', 'FullStack', 'BackEnd', 'FrontEnd', 'Web', 'Tensorflow',
     'RedHat', 'OpenGL', 'GUI', 'IoT', 'Networking', 'Threading', 'OO-Design', 'CLI',
-    'VM', 'Cloud', 'RemoteAdmin', 'git']
+    'VM', 'Cloud', 'git', 'Functional', 'MySQL', 'DB2', 'MCU', 'Maker', 'Perforce', 'Security', 'XSS', 'CSRF',
+    'SQLInjection', '<3 Linux']
   var wBouncer = new WordBounceEffect(1141 / 2, 300 / 2, techList, 30, 'Monospace',
     collidObj, uController, rController)
   rController.addGraphicObject(wBouncer)

@@ -36,6 +36,9 @@ export default class RigidLine extends Position(Updatable(Object)) {
     // once we have unmerged with the object.
     this.isColliding = false
 
+    // used to count updates. collission checking is done only every 10 updates.
+    this.updateCount = 0
+
     this.textGfx = gfxEffect
     this.updateGraphicPosition()
   }
@@ -64,17 +67,24 @@ export default class RigidLine extends Position(Updatable(Object)) {
 
   update (ups) {
     this.applyVelocity(ups)
+    this.updateGraphicPosition()
 
     if (this.isColliding) {
-      // don't re calculate physics we are most likely inside another object. just drift out.
+      // don't re calculate physics we are most likely inside another object. just drift out. (BUG can cause phasing in multi collide)
       cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
         this.length, this.thickness, this.angle)
-      if (cRect.getCollisionPointsWithOther(this.collide) !== null) {
-        this.applyVelocity(ups)
-      } else {
+      if (cRect.getCollisionPointsWithOther(this.collide) === null) {
         this.isColliding = false
       }
     } else {
+      // only collision check every 10 updates
+      this.updateCount ++
+      if (this.updateCount < 10) {
+        return
+      } else {
+        this.updateCOunt = 0
+      }
+
       // check for collision and if collide calculate physics
       var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
         this.length, this.thickness, this.angle)
@@ -90,8 +100,6 @@ export default class RigidLine extends Position(Updatable(Object)) {
         this.isColliding = true
       }
     }
-
-    this.updateGraphicPosition()
   }
 
   applyVelocity (ups) {
@@ -119,11 +127,15 @@ export default class RigidLine extends Position(Updatable(Object)) {
     var line = math.flatten(math.subtract(this.getEndPoint(), this.getStartPoint())).toArray()
 
     var lineProj = math.multiply(math.dot(rP, line) / math.dot(line, line), line)
-    var lineNorm = math.multiply(util.createRotationMatrix(math.pi / 2), util.vectorToPoint(math.divide(lineProj, math.norm(lineProj))))
 
-    var vAF = util.setPointW(math.multiply(lineNorm, 1.0 * this.angularForce), 0)
+    if (math.norm(lineProj) != 0) {
+      var lineNorm = math.multiply(util.createRotationMatrix(math.pi / 2), util.vectorToPoint(math.divide(lineProj, math.norm(lineProj))))
+      var vAF = util.setPointW(math.multiply(lineNorm, 1.0 * this.angularForce), 0)
 
-    return vAF
+      return vAF
+    } else {
+      return math.matrix([[0], [0], [0]])
+    }
   }
 
   handleCollision (collissionPoint, vF, vAF) {

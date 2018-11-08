@@ -143,3 +143,7 @@ export function measureText (text, font, ctx) {
 
   return txtSize
 }
+
+export function colorToString (color) {
+  return 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',' + color.a + ')'
+}
