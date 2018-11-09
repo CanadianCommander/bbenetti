@@ -14,6 +14,7 @@ import CollidePoly from '/script/physics/CollidePoly.js'
 
 // misc
 import * as util from '/script/util.js'
+import * as math from '/script/math/math.js'
 
 var primaryCanvas = $('#animationArea').get(0)
 if (primaryCanvas !== undefined) {
@@ -34,20 +35,20 @@ if (primaryCanvas !== undefined) {
   gridEffect.addHighlightEffect(mouseHighlightEffect)
 
   // collide poly for word bounce effect
-  var collidObj = new CollidePoly([
-    util.toPoint(0, 0), util.toPoint(0, 300), // left wall
-    util.toPoint(1141, 300), // bottom wall
-    util.toPoint(1141, 0), // right wall
-    util.toPoint(0, 0)])
+  var collideObj = new CollidePoly([
+    math.point.createPoint(0, 0), math.point.createPoint(0, 300), // left wall
+    math.point.createPoint(1141, 300), // bottom wall
+    math.point.createPoint(1141, 0), // right wall
+    math.point.createPoint(0, 0)])
 
   // word bounce effect
-  var techList = ['C++', 'Go', 'C', 'Scala', 'Python', 'JS', 'Java', 'SQL', 'Bash', 'ARMv7', 'asm',
+  var techList = ['C++', 'GoLang', 'C', 'Scala', 'Python', 'JS', 'Java', 'SQL', 'Bash', 'ARMv7', 'asm',
     'BareMetal', 'Linux', 'MacOs', 'Terminal', 'FullStack', 'BackEnd', 'FrontEnd', 'Web', 'Tensorflow',
     'RedHat', 'OpenGL', 'GUI', 'IoT', 'Networking', 'Threading', 'OO-Design', 'CLI',
     'VM', 'Cloud', 'git', 'Functional', 'MySQL', 'DB2', 'MCU', 'Maker', 'Perforce', 'Security', 'XSS', 'CSRF',
-    'SQLInjection', '<3 Linux']
+    '<3 Linux']
   var wBouncer = new WordBounceEffect(1141 / 2, 300 / 2, techList, 30, 'Monospace',
-    collidObj, uController, rController)
+    collideObj, uController, rController)
   rController.addGraphicObject(wBouncer)
   uController.addUpdatable(wBouncer)
 

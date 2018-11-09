@@ -6,8 +6,15 @@ const Collidable = base => class extends base {
     super()
   }
 
-  // return the point of collission or null
-  getCollissionPoint (rayStart, rayEnd) {
+  /*
+  get a list of collission points.
+  param:
+    rayStart: start of ray
+    rayEnd: end of ray
+  return:
+    a list of lists of the format [[point, surface normal], [point, surface normal], ...]
+  */
+  getCollissionPoints (rayStart, rayEnd) {
 
   }
 

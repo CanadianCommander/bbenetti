@@ -1,5 +1,7 @@
 import Collidable from './Collidable.js'
+
 import * as util from '../util.js'
+import * as math from '../math/math.js'
 
 export default class CollidablePoly extends Collidable(Object) {
   constructor (polyPoints) {
@@ -48,23 +50,24 @@ export default class CollidablePoly extends Collidable(Object) {
     a list of lists of the format [[point, surface normal], [point, surface normal], ...]
   */
   getCollisionPoints (rayStart, rayEnd) {
-    return this.checkCollission(rayStart, rayEnd)
+    return this.checkCollision(rayStart, rayEnd)
   }
 
   isColliding (rayStart, rayEnd) {
-    if (this.checkCollission(rayStart, rayEnd) !== null) {
+    if (this.checkCollision(rayStart, rayEnd) !== null) {
       return true
     }
     return false
   }
 
-  checkCollission (rayStart, rayEnd) {
+  checkCollision (rayStart, rayEnd) {
     var cPoints = []
     for (var i = 1; i < this.pointList.length; i++) {
-      var intersectPoint = util.intersectLines(rayStart, rayEnd, this.pointList[i - 1], this.pointList[i])
+      var intersectPoint = math.misc.intersectLines(rayStart, rayEnd, this.pointList[i - 1], this.pointList[i])
       if (intersectPoint !== null) {
         cPoints.push([intersectPoint,
-          math.multiply(util.createRotationMatrix(math.pi / 2), math.subtract(this.pointList[i - 1], this.pointList[i]))])
+          math.point.normalize(
+            math.matrix.matmulVec(math.matrix.createRotationMatrix(Math.PI / 2), math.point.sub(this.pointList[i - 1], this.pointList[i])))])
       }
     }
 

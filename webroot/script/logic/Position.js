@@ -1,3 +1,4 @@
+import * as math from '../math/math.js'
 /*
 Position is the interface for objects that have a position (x, y).
 */
@@ -6,15 +7,15 @@ const Position = base => class extends base {
   // directly passing x/y in to constructor is to hard.
   constructor () {
     super()
-    this.pos = math.matrix([[0], [0], [1]])
+    this.pos = math.point.createPoint(0, 0)
   }
 
   setX (x) {
-    this.pos = math.subset(this.pos, math.index(0, 0), x)
+    this.pos[0] = x
   }
 
   setY (y) {
-    this.pos = math.subset(this.pos, math.index(1, 0), y)
+    this.pos[1] = y
   }
 
   setPosition (point) {
@@ -22,11 +23,11 @@ const Position = base => class extends base {
   }
 
   getX () {
-    return math.subset(this.pos, math.index(0, 0))
+    return this.pos[0]
   }
 
   getY () {
-    return math.subset(this.pos, math.index(1, 0))
+    return this.pos[1]
   }
 
   getPosition () {

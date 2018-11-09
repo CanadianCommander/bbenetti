@@ -1,4 +1,4 @@
-import * as util from '/script/util.js'
+import * as math from '/script/math/math.js'
 /**
 RenderController, controlls the rendering operations on the canvas.
 **/
@@ -15,7 +15,7 @@ export default class RenderController {
 
     // OK, so some one fucked up, this site does a good job of explaining why this is needed (really bad design, but hey its JS, what did you expect)
     // http://usefulangle.com/post/17/html5-canvas-drawing-1px-crisp-straight-lines
-    this.baseMatrix = util.createTranslationMatrix(-0.5, -0.5)
+    this.baseMatrix = math.matrix.createTranslationMatrix(-0.5, -0.5)
   }
 
   getRenderContext () {
@@ -47,14 +47,14 @@ export default class RenderController {
 
     // render graphics objects
     this.rContext.save()
-    util.applyMathJSMatrixToCanvas(this.rContext, this.baseMatrix)
+    math.matrix.applyMatrixToCanvas(this.rContext, this.baseMatrix)
 
     this.graphicObjects.forEach((obj, i, arr) => {
       this.rContext.save()
 
       obj.applyToCanvas(this.rContext)// apply object transforms
       obj.draw(this.rContext)// draw
-      util.applyMathJSMatrixToCanvas(this.rContext, this.baseMatrix)// reset transformation
+      math.matrix.applyMatrixToCanvas(this.rContext, this.baseMatrix)// reset transformation
 
       this.rContext.restore()
     })

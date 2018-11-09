@@ -1,13 +1,15 @@
 import CollidePoly from './CollidePoly.js'
+
 import * as util from '../util.js'
+import * as math from '../math/math.js'
 
 export default class CollideRect extends CollidePoly {
   constructor (x, y, width, height, rotation) {
     super([])
-    this.pos = util.toPoint(x, y)
+    this.pos = math.point.createPoint(x, y)
     this.width = width
     this.height = height
-    this.rotationMtx = util.createRotationMatrix(rotation)
+    this.rotationMtx = math.matrix.createRotationMatrix(rotation)
     this.buildPointList()
   }
 
@@ -22,17 +24,17 @@ export default class CollideRect extends CollidePoly {
   }
 
   setRotation (ro) {
-    this.rotationMtx = util.createRotationMatrix(ro)
+    this.rotationMtx = math.matrix.createRotationMatrix(ro)
     this.buildPointList()
   }
 
   setX (x) {
-    this.pos = util.setPointX(x)
+    this.pos = math.point.setPointX(x)
     this.buildPointList()
   }
 
   setY (y) {
-    this.pos = util.setPoinY(y)
+    this.pos = math.point.setPoinY(y)
     this.buildPointList()
   }
 
@@ -43,13 +45,15 @@ export default class CollideRect extends CollidePoly {
 
   // build list of points that represent this rectangle
   buildPointList () {
-    var transBack = util.createTranslationMatrix(util.getPointX(this.pos) + this.width / 2, util.getPointY(this.pos) + this.height / 2)
-    var pos = math.multiply(util.createTranslationMatrix(-util.getPointX(this.pos) - this.width / 2, -util.getPointY(this.pos) - this.height / 2), this.pos)
+    var transBack = math.matrix.createTranslationMatrix(math.point.getPointX(this.pos) + this.width / 2,
+      math.point.getPointY(this.pos) + this.height / 2)
+    var pos = math.matrix.matmulVec(math.matrix.createTranslationMatrix(-math.point.getPointX(this.pos) - this.width / 2,
+      -math.point.getPointY(this.pos) - this.height / 2), this.pos)
 
-    var tl = math.multiply(transBack, math.multiply(this.rotationMtx, pos))
-    var tr = math.multiply(transBack, math.multiply(this.rotationMtx, math.add(pos, math.matrix([[this.width], [0], [0]]))))
-    var br = math.multiply(transBack, math.multiply(this.rotationMtx, math.add(pos, math.matrix([[this.width], [this.height], [0]]))))
-    var bl = math.multiply(transBack, math.multiply(this.rotationMtx, math.add(pos, math.matrix([[0], [this.height], [0]]))))
+    var tl = math.matrix.matmulVec(transBack, math.matrix.matmulVec(this.rotationMtx, pos))
+    var tr = math.matrix.matmulVec(transBack, math.matrix.matmulVec(this.rotationMtx, math.point.add(pos, math.point.createPoint(this.width, 0, 0))))
+    var br = math.matrix.matmulVec(transBack, math.matrix.matmulVec(this.rotationMtx, math.point.add(pos, math.point.createPoint(this.width, this.height, 0))))
+    var bl = math.matrix.matmulVec(transBack, math.matrix.matmulVec(this.rotationMtx, math.point.add(pos, math.point.createPoint(0, this.height, 0))))
 
     this.setPolyPoints([tl, tr, br, bl, tl])
   }

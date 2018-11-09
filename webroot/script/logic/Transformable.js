@@ -1,4 +1,4 @@
-import * as util from '/script/util.js'
+import * as math from '../math/math.js'
 /**
 Transformable
 **/
@@ -9,11 +9,11 @@ const Transformable = base => class extends base {
   }
 
   applyToCanvas (ctx) {
-    util.applyMathJSMatrixToCanvas(ctx, this.transform)
+    math.matrix.applyMatrixToCanvas(ctx, this.transform)
   }
 
   reset () {
-    this.transform = math.identity(3)
+    this.transform = math.matrix.createIdentity()
   }
 
   setMatrix (mtx) {
@@ -25,21 +25,21 @@ const Transformable = base => class extends base {
   }
 
   multiply (mtx) {
-    this.transform = math.multiply(mtx, this.transform)
+    this.transform = math.matrix.matmul(mtx, this.transform)
   }
 
   translate (x, y) {
-    var mtx = util.createTranslationMatrix(x, y)
+    var mtx = math.matrix.createTranslationMatrix(x, y)
     this.multiply(mtx)
   }
 
   scale (xS, yS) {
-    var mtx = util.createScaleMatrix(xS, yS)
+    var mtx = math.matrix.createScaleMatrix(xS, yS)
     this.multiply(mtx)
   }
 
   rotate (angle) {
-    var mtx = util.createRotationMatrix(angle)
+    var mtx = math.matrix.createRotationMatrix(angle)
     this.multiply(mtx)
   }
 

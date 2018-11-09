@@ -5,14 +5,13 @@ import GraphicCollection from '../canvasGraphics2d/GraphicCollection.js'
 import Updatable from '../logic/Updatable.js'
 import Position from '../logic/Position.js'
 import CollideRect from './CollideRect.js'
-import * as util from '../util.js'
 
-// number of velocity updates to apply at MAX to get out of collision state
-// This setting is to prevent the browser from locking in the case of infinite collision
-const MAX_COLLISSION_BACKOUT = 1000
+import * as util from '../util.js'
+import * as math from '../math/math.js'
+
 export default class RigidLine extends Position(Updatable(Object)) {
   /**
-  parmas
+  params
     - pos: the position of the line by mid point
     - angle: rotation of the line in radians
     - length: the length of the line
@@ -22,9 +21,9 @@ export default class RigidLine extends Position(Updatable(Object)) {
     super()
     this.setPosition(pos)
     this.length = length
-    this.rotationMtx = util.createRotationMatrix(angle)
+    this.rotationMtx = math.matrix.createRotationMatrix(angle)
 
-    this.translationalForce = math.matrix([[0], [0], [0]])
+    this.translationalForce = math.point.createPoint(0, 0, 0)
     this.angularForce = 0
     this.angle = angle
     this.mass = mass
@@ -36,9 +35,6 @@ export default class RigidLine extends Position(Updatable(Object)) {
     // once we have unmerged with the object.
     this.isColliding = false
 
-    // used to count updates. collission checking is done only every 10 updates.
-    this.updateCount = 0
-
     this.textGfx = gfxEffect
     this.updateGraphicPosition()
   }
@@ -48,21 +44,21 @@ export default class RigidLine extends Position(Updatable(Object)) {
   }
 
   getStartPoint () {
-    var lineVec = math.multiply(math.matrix([[1], [0], [0]]), this.length / 2)
-    return math.subtract(this.getPosition(), math.multiply(this.rotationMtx, lineVec))
+    var lineVec = math.point.scale(math.point.createPoint(1, 0), this.length / 2)
+    return math.point.sub(this.getPosition(), math.matrix.matmulVec(this.rotationMtx, lineVec))
   }
 
   getEndPoint () {
-    var lineVec = math.multiply(math.matrix([[1], [0], [0]]), this.length / 2)
-    return math.add(this.getPosition(), math.multiply(this.rotationMtx, lineVec))
+    var lineVec = math.point.scale(math.point.createPoint(1, 0), this.length / 2)
+    return math.point.add(this.getPosition(), math.matrix.matmulVec(this.rotationMtx, lineVec))
   }
 
   // update the graphical representation of the object on screen
   updateGraphicPosition () {
     this.textGfx.setPosition(this.getPosition())
     this.textGfx.setMatrix(
-      math.multiply(util.createTranslationMatrix(this.getX(), this.getY()),
-        math.multiply(this.rotationMtx, util.createTranslationMatrix(-this.getX(), -this.getY()))))
+      math.matrix.matmul(math.matrix.createTranslationMatrix(this.getX(), this.getY()),
+        math.matrix.matmul(this.rotationMtx, math.matrix.createTranslationMatrix(-this.getX(), -this.getY()))))
   }
 
   update (ups) {
@@ -71,28 +67,20 @@ export default class RigidLine extends Position(Updatable(Object)) {
 
     if (this.isColliding) {
       // don't re calculate physics we are most likely inside another object. just drift out. (BUG can cause phasing in multi collide)
-      cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
+      cRect = new CollideRect(math.point.getPointX(this.getPosition()) - this.length / 2, math.point.getPointY(this.getPosition()) - this.thickness / 2,
         this.length, this.thickness, this.angle)
       if (cRect.getCollisionPointsWithOther(this.collide) === null) {
         this.isColliding = false
       }
     } else {
-      // only collision check every 10 updates
-      this.updateCount ++
-      if (this.updateCount < 10) {
-        return
-      } else {
-        this.updateCOunt = 0
-      }
-
       // check for collision and if collide calculate physics
-      var cRect = new CollideRect(util.getPointX(this.getPosition()) - this.length / 2, util.getPointY(this.getPosition()) - this.thickness / 2,
+      var cRect = new CollideRect(math.point.getPointX(this.getPosition()) - this.length / 2, math.point.getPointY(this.getPosition()) - this.thickness / 2,
         this.length, this.thickness, this.angle)
 
-      var collissionPoints = cRect.getCollisionPointsWithOther(this.collide)
-      if (collissionPoints !== null) {
-        var cPoint = util.getMeanPoint(collissionPoints.map((p) => p[0]))
-        var cNorm = util.getMeanPoint(collissionPoints.map((p) => p[1]))
+      var collisionPoints = cRect.getCollisionPointsWithOther(this.collide)
+      if (collisionPoints !== null) {
+        var cPoint = math.point.getMeanPoint(collisionPoints.map((p) => p[0]))
+        var cNorm = math.point.getMeanPoint(collisionPoints.map((p) => p[1]))
 
         this.handleCollision(cPoint, this.calculateCollisionForce(cPoint, cNorm),
         this.calculateCollisionAngularForce(cPoint, cNorm))
@@ -104,49 +92,47 @@ export default class RigidLine extends Position(Updatable(Object)) {
 
   applyVelocity (ups) {
     // move
-    this.setPosition(math.add(this.getPosition(), math.multiply(this.translationalForce, (1.0 / this.mass) * (1.0 / ups))))
+    this.setPosition(math.point.add(this.getPosition(), math.point.scale(this.translationalForce, (1.0 / this.mass) * (1.0 / ups))))
     this.angle = this.angle + (this.angularForce / (this.mass * this.length / 2)) * (1.0 / ups)
-    this.rotationMtx = util.createRotationMatrix(this.angle)
+    this.rotationMtx = math.matrix.createRotationMatrix(this.angle)
   }
 
   // apply force vector to the rigid line
   applyForce (f) {
-    this.translationalForce = math.add(this.translationalForce, f)
+    this.translationalForce = math.point.add(this.translationalForce, f)
   }
 
-  calculateCollisionForce (collissionPoint, surfaceNormal) {
-    var snFlat = math.flatten(surfaceNormal).toArray()
-    var sn = math.divide(math.abs(surfaceNormal), math.norm(snFlat))
-    var vF = math.dotMultiply(math.multiply(this.translationalForce, -2.0), sn)
+  calculateCollisionForce (collisionPoint, surfaceNormal) {
+    var sn = math.point.divide(math.point.abs(surfaceNormal), math.point.length(surfaceNormal))
+    var vF = math.point.multiply(math.point.scale(this.translationalForce, -2.0), sn)
 
     return vF
   }
 
-  calculateCollisionAngularForce (collissionPoint, surfaceNormal) {
-    var rP = math.flatten(math.subtract(this.getPosition(), collissionPoint)).toArray()
-    var line = math.flatten(math.subtract(this.getEndPoint(), this.getStartPoint())).toArray()
+  calculateCollisionAngularForce (collisionPoint, surfaceNormal) {
+    var rP = math.point.sub(this.getPosition(), collisionPoint)
+    var line = math.point.sub(this.getEndPoint(), this.getStartPoint())
 
-    var lineProj = math.multiply(math.dot(rP, line) / math.dot(line, line), line)
+    var lineProj = math.point.scale(line, math.point.dot(rP, line) / math.point.dot(line, line))
 
-    if (math.norm(lineProj) != 0) {
-      var lineNorm = math.multiply(util.createRotationMatrix(math.pi / 2), util.vectorToPoint(math.divide(lineProj, math.norm(lineProj))))
-      var vAF = util.setPointW(math.multiply(lineNorm, 1.0 * this.angularForce), 0)
+    if (math.point.length(lineProj) != 0) {
+      var lineNorm = math.matrix.matmulVec(math.matrix.createRotationMatrix(Math.PI / 2), math.point.normalize(lineProj))
+      var vAF = math.point.setPointW(math.point.scale(lineNorm, 1.0 * this.angularForce), 0)
 
       return vAF
     } else {
-      return math.matrix([[0], [0], [0]])
+      return math.point.createPoint(0, 0, 0)
     }
   }
 
-  handleCollision (collissionPoint, vF, vAF) {
-    vF = math.add(vF, vAF)
+  handleCollision (collisionPoint, vF, vAF) {
+    vF = math.point.add(vF, vAF)
     // calc new translational and angular force
-    var vFflat = math.flatten(vF).toArray()
-    var vR = math.subtract(this.getPosition(), collissionPoint)
-    var torque = util.getPointX(vR) * util.getPointY(vF) - util.getPointY(vR) * util.getPointX(vF)
+    var vR = math.point.sub(this.getPosition(), collisionPoint)
+    var torque = math.point.getPointX(vR) * math.point.getPointY(vF) - math.point.getPointY(vR) * math.point.getPointX(vF)
     var transForce = torque / (this.inertia)
 
     this.angularForce = this.angularForce - torque / this.inertia
-    this.translationalForce = math.add(this.translationalForce, math.multiply(vF, (1.0 - math.abs(transForce) / math.norm(vFflat))))
+    this.translationalForce = math.point.add(this.translationalForce, math.point.scale(vF, (1.0 - Math.abs(transForce) / math.point.length(vF))))
   }
 }
