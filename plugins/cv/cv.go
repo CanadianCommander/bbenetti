@@ -13,6 +13,7 @@ func HandleRequest(req *http.Request, res http.ResponseWriter, fsName string) bo
 
 	myTemplate := template.New("root")
 	templateHelper.AddTemplate(myTemplate, "staticTemplate")
+	templateHelper.AddTemplate(myTemplate, "animation")
 
 	rawTemplate := pu.ReadFileToBuff(fsName)
 	if rawTemplate == nil {

@@ -18,6 +18,11 @@
     "cacheTTL":             "1s"
   },
 
+  "security": {
+    "user": "www-data",
+    "strict": true
+  },
+
   "plugin": {
     "plugins": [
       {
@@ -32,6 +37,10 @@
       {
         "plugin": "./plugins/staticTemplate/staticTemplate.so",
         "name": "staticTemplate"
+      },
+      {
+        "plugin": "./plugins/animationTemplate/animationTemplate.so",
+        "name": "animation"
       }
     ]
   }
