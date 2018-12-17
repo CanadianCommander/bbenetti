@@ -1,27 +1,41 @@
 package main
 
 import (
+	"html/template"
 	"net/http"
-	"path"
-	"strings"
 
 	"github.com/CanadianCommander/MicroWeb/pkg/logger"
-	mwsettings "github.com/CanadianCommander/MicroWeb/pkg/mwSettings"
 	pu "github.com/CanadianCommander/MicroWeb/pkg/pluginUtil"
+	"github.com/CanadianCommander/MicroWeb/pkg/templateHelper"
 )
 
 func HandleRequest(req *http.Request, res http.ResponseWriter, fsName string) bool {
-	cvParse := cvParseStruct{}
 
-	err := pu.ProcessTemplateText(pu.ReadFileToBuff(fsName), res, &cvParse)
+	myTemplate := template.New("root")
+	templateHelper.AddTemplate(myTemplate, "staticTemplate")
+
+	rawTemplate := pu.ReadFileToBuff(fsName)
+	if rawTemplate == nil {
+		logger.LogError("Cannot read resource file, with path: %s", fsName)
+		return false
+	}
+
+	_, err := myTemplate.Parse(string((*rawTemplate)))
 	if err != nil {
-		logger.LogError("Error Processing template: %s", err.Error())
+		logger.LogError("Could not parse template: %s with error: %s", fsName, err.Error())
+		return false
+	}
+
+	err = myTemplate.Execute(res, nil)
+	if err != nil {
+		logger.LogError("Could not execute template: %s with error: %s", fsName, err.Error())
 		return false
 	}
 
 	return true
 }
 
+/*
 type cvParseStruct struct {
 }
 
@@ -37,6 +51,7 @@ func (cv *cvParseStruct) GetSectionContent(name string) string {
 }
 
 func ResolveSectionName(name string) string {
-	staticDir := mwsettings.GlobalSettings.GetStaticResourcePath()
+	staticDir := mwsettings.GetSettingString("general/staticDirectory")
 	return path.Join(staticDir, "sections", name)
 }
+*/

@@ -19,19 +19,19 @@
 
     <div class="container no-padding">
       <div class="container-fluid no-margin bg-primary">
-        {{.GetSectionContent " testSection.gohtml "}}
-
+        {{template `staticTemplate` staticTemplate "sections/testSection.gohtml"}}
       </div>
+
       <div class="container-fluid bg-secondary">
-        {{.GetSectionContent " testSection2.gohtml "}}
+        {{template `staticTemplate` staticTemplate "sections/testSection2.gohtml"}}
       </div>
 
       <div class="container-fluid bg-primary">
-        {{.GetSectionContent " testSection2.gohtml "}}
+        {{template `staticTemplate` staticTemplate "sections/testSection2.gohtml"}}
       </div>
 
       <div class="container-fluid bg-secondary">
-        {{.GetSectionContent " testSection2.gohtml "}}
+        {{template `staticTemplate` staticTemplate "sections/testSection2.gohtml"}}
       </div>
     </div>
 
