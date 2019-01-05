@@ -1,0 +1,62 @@
+{
+  "css": ["/sections/techMap/config/mySkill.css"],
+  "sections": [
+    {
+      "header":      "Professional",
+      "headerClass": "professional-header",
+      "itemClass":    "btn-pro",
+      "items": [
+        {
+          "name": "test123",
+          "desc": "this is a test 123 </br> 123 test test test."
+        },
+        {
+          "name": "Job?",
+          "desc": "you has job?"
+        },
+        {
+          "name": "Jerb?",
+          "desc": "u haz jerb?"
+        }
+      ]
+    },
+    {
+      "header":       "Personal",
+      "headerClass":  "personal-header",
+      "itemClass":    "btn-pers",
+      "items": [
+        {
+          "name": "Hey Buddy!",
+          "desc": "I'm not your buddy guy!"
+        },
+        {
+          "name": "I'm not your Guy",
+          "desc": "Friend!"
+        },
+        {
+          "name": "I'm not your friend",
+          "desc": "Buddy!"
+        },
+        {
+          "name": "TrollFace.jpg",
+          "desc": "<img src='https://i.kym-cdn.com/photos/images/original/000/096/044/trollface.jpg' width='124' height='124'></img>"
+        }
+      ]
+    },
+    {
+      "header":       "Passing",
+      "headerClass":  "passing-header",
+      "itemClass":    "btn-pass",
+      "items": [
+        {
+          "name": "more",
+          "desc": "some thing else."
+        },
+        {
+          "name": "Transport Fever",
+          "desc": "I keep going bankrupt."
+        }
+      ]
+    }
+  ]
+}

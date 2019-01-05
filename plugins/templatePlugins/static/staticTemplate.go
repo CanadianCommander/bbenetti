@@ -3,10 +3,12 @@ package main
 import (
 	"html/template"
 	"path"
+	"strings"
 
 	"github.com/CanadianCommander/MicroWeb/pkg/logger"
 	mwsettings "github.com/CanadianCommander/MicroWeb/pkg/mwSettings"
 	"github.com/CanadianCommander/MicroWeb/pkg/pluginUtil"
+	"github.com/CanadianCommander/MicroWeb/pkg/templateHelper"
 )
 
 func GetTemplate(template *template.Template) {
@@ -37,6 +39,19 @@ func GetData(argv interface{}) interface{} {
 		return nil
 	}
 
-	myData.Content = template.HTML((*rawContent))
+	//parse template
+	myTemplate := template.New("root")
+	templateHelper.AddTemplateGroup(myTemplate, "main")
+
+	_, err := myTemplate.Parse(string(*rawContent))
+	if err != nil {
+		logger.LogError("Could not parse template file: %s with error: %s", staticFilePath, err.Error())
+		return nil
+	}
+
+	out := strings.Builder{}
+	myTemplate.Execute(&out, nil)
+
+	myData.Content = template.HTML(out.String())
 	return &myData
 }

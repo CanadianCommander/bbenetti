@@ -4,7 +4,7 @@
     "TCPPort":          ":8080",
     "staticDirectory":  "./webroot/",
     "logFile":          "/var/log/microweb.log",
-    "logVerbosity":     "verbose",
+    "logVerbosity":     "info",
     "autoReloadSettings": false
   },
 
@@ -35,12 +35,19 @@
   "templateHelper": {
     "plugins": [
       {
-        "plugin": "./plugins/staticTemplate/staticTemplate.so",
-        "name": "staticTemplate"
+        "plugin": "./plugins/templatePlugins/static/static.so",
+        "name": "staticTemplate",
+        "group": "main"
       },
       {
-        "plugin": "./plugins/animationTemplate/animationTemplate.so",
-        "name": "animation"
+        "plugin": "./plugins/templatePlugins/animation/animation.so",
+        "name": "animation",
+        "group": "main"
+      },
+      {
+        "plugin": "./plugins/templatePlugins/techMap/techMap.so",
+        "name": "techMap",
+        "group": "main"
       }
     ]
   }

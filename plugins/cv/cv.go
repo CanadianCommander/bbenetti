@@ -12,8 +12,7 @@ import (
 func HandleRequest(req *http.Request, res http.ResponseWriter, fsName string) bool {
 
 	myTemplate := template.New("root")
-	templateHelper.AddTemplate(myTemplate, "staticTemplate")
-	templateHelper.AddTemplate(myTemplate, "animation")
+	templateHelper.AddTemplateGroup(myTemplate, "main")
 
 	rawTemplate := pu.ReadFileToBuff(fsName)
 	if rawTemplate == nil {
@@ -35,24 +34,3 @@ func HandleRequest(req *http.Request, res http.ResponseWriter, fsName string) bo
 
 	return true
 }
-
-/*
-type cvParseStruct struct {
-}
-
-func (cv *cvParseStruct) GetSectionContent(name string) string {
-	name = strings.Trim(name, " ")
-	buff := pu.ReadFileToBuff(ResolveSectionName(name))
-	if buff == nil {
-		logger.LogError("Could not load section file with name: %s", name)
-		return "500 internal error"
-	}
-
-	return string((*buff)[:])
-}
-
-func ResolveSectionName(name string) string {
-	staticDir := mwsettings.GetSettingString("general/staticDirectory")
-	return path.Join(staticDir, "sections", name)
-}
-*/

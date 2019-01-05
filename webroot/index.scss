@@ -7,6 +7,7 @@
 @import "../vendor/bootstrap-4.1.3/scss/mixins";
 
 @import "scss/common.scss";
+@import "sections/techMap/techMap.scss";
 
 //more specific selector than bootstrap so we can override it.
 html {
