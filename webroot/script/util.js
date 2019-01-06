@@ -1,3 +1,4 @@
+import * as math from './math/math.js'
 
 export function drawLineTo (ctx, x0, y0, x1, y1) {
   ctx.moveTo(x0, y0)
@@ -20,4 +21,20 @@ export function measureText (text, font, ctx) {
 
 export function colorToString (color) {
   return 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',' + color.a + ')'
+}
+
+/*
+  clientSpaceToViewportSpaceTransform calculates a transformation matrix that transforms
+  from client space (DOM coordinates) to viewport coordinates.
+*/
+export function clientSpaceToViewportSpaceTransform (canvas) {
+  // client space
+  let cw = $(canvas).width()
+  let ch = $(canvas).height()
+
+  // viewport
+  let vw = parseInt($(canvas).attr('width'))
+  let vh = parseInt($(canvas).attr('height'))
+
+  return math.matrix.createScaleMatrix(vw / cw, vh / ch)
 }

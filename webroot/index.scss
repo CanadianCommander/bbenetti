@@ -61,7 +61,7 @@ html {
     }
 
     #animationArea {
-      height: 200px;
+      height: 120px;
     }
 
     .portrait {
@@ -78,7 +78,7 @@ html {
     }
 
     #animationArea {
-      height: 250px;
+      height: 200px;
     }
 
     .portrait {
@@ -86,6 +86,12 @@ html {
       bottom: -50px;
       width:150px;
       height: 150px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    #animationArea {
+      height: 250px;
     }
   }
 

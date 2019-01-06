@@ -18,18 +18,22 @@ import * as math from '/script/math/math.js'
 
 export default function initAnimation (target) {
   var primaryCanvas = $(target).get(0)
+
   if (primaryCanvas !== undefined) {
+    let viewportWidth = parseInt($(target).attr('width'))
+    let viewportHeight = parseInt($(target).attr('height'))
+
     var rController = new RenderController(primaryCanvas)
     var uController = new UpdateController()
 
     // create grid effect over entire screen
-    var gridEffect = new GridEffect(0, 0, 1141, 301, 60)
+    var gridEffect = new GridEffect(0, 0, viewportWidth, viewportHeight, 60)
     gridEffect.setGridBias(-10, -10)
     rController.addGraphicObject(gridEffect)
 
     // corner lights
-    gridEffect.addHighlightEffect(new RadialGradientEffect(0, 300, 300, '#5879adff', '#5879ad00'))
-    gridEffect.addHighlightEffect(new RadialGradientEffect(1141, 0, 300, '#48699dff', '#48699d00'))
+    gridEffect.addHighlightEffect(new RadialGradientEffect(0, viewportHeight, 300, '#5879adff', '#5879ad00'))
+    gridEffect.addHighlightEffect(new RadialGradientEffect(viewportWidth, 0, 300, '#48699dff', '#48699d00'))
 
     // mouse tracking highlight effect
     var mouseHighlightEffect = new RadialGradientEffect(0, 0, 100, '#5879adff', '#5879ad00')
@@ -37,9 +41,9 @@ export default function initAnimation (target) {
 
     // collide poly for word bounce effect
     var collideObj = new CollidePoly([
-      math.point.createPoint(0, 0), math.point.createPoint(0, 300), // left wall
-      math.point.createPoint(1141, 300), // bottom wall
-      math.point.createPoint(1141, 0), // right wall
+      math.point.createPoint(0, 0), math.point.createPoint(0, viewportHeight), // left wall
+      math.point.createPoint(viewportWidth, viewportHeight), // bottom wall
+      math.point.createPoint(viewportWidth, 0), // right wall
       math.point.createPoint(0, 0)])
 
     // word bounce effect
@@ -48,7 +52,7 @@ export default function initAnimation (target) {
       'RedHat', 'OpenGL', 'GUI', 'IoT', 'Networking', 'Threading', 'OO-Design', 'CLI',
       'VM', 'Cloud', 'git', 'Functional', 'MySQL', 'DB2', 'MCU', 'Maker', 'Perforce', 'Security', 'XSS', 'CSRF',
       '<3 Linux']
-    var wBouncer = new WordBounceEffect(1141 / 2, 300 / 2, techList, 30, 'Monospace',
+    var wBouncer = new WordBounceEffect(viewportWidth / 2, viewportHeight / 2, techList, 30, 'Monospace',
       collideObj, uController, rController)
     rController.addGraphicObject(wBouncer)
     uController.addUpdatable(wBouncer)
@@ -57,12 +61,16 @@ export default function initAnimation (target) {
     var mouseX = -999
     var mouseY = -999
     $(window).on('mousemove', (event) => {
-      mouseX = event.clientX - primaryCanvas.getBoundingClientRect().x
-      mouseY = event.clientY - primaryCanvas.getBoundingClientRect().y
+      let viewportTransform = util.clientSpaceToViewportSpaceTransform(primaryCanvas)
+
+      let mouseXVec = math.point.createPoint(event.clientX - primaryCanvas.getBoundingClientRect().x, 0)
+      let mouseYVec = math.point.createPoint(0, event.clientY - primaryCanvas.getBoundingClientRect().y)
+      mouseX = math.point.getPointX(math.matrix.matmulVec(viewportTransform, mouseXVec))
+      mouseY = math.point.getPointY(math.matrix.matmulVec(viewportTransform, mouseYVec))
     })
     $(window).on('mouseout', (event) => {
-      mouseX = -999
-      mouseY = -999
+      mouseX = -9999
+      mouseY = -9999
     })
 
     // move highlight to follow mouse

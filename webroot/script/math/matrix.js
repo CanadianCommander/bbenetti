@@ -32,5 +32,5 @@ export function createRotationMatrix (angle) {
 }
 
 export function applyMatrixToCanvas (ctx, mtx) {
-  ctx.setTransform(mtx[0], mtx[1], mtx[3], mtx[4], mtx[6], mtx[7])
+  ctx.transform(mtx[0], mtx[1], mtx[3], mtx[4], mtx[6], mtx[7])
 }
