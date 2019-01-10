@@ -7,16 +7,32 @@
       "itemClass":    "btn-pro",
       "items": [
         {
-          "name": "test123",
-          "desc": "this is a test 123 </br> 123 test test test."
+          "name": "Desktop Application Development",
+          "desc": "<p> During my time at <a href='https://www.acdsystems.com/'>ACD Systems</a> I worked on their flagship photography suite, ACDSee. ACDSee is a desktop application designed for professional photographers to manage and edit their photos. ACDSee is built on a large C++ code base, and leverages Microsoft's <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> and <a href='https://docs.microsoft.com/en-us/windows/desktop/directx'>Direct X </a> APIs. In working on this product I gained valuable experience in working on large object oriented code bases, and in developing Windows desktop applications in  general.</p>"
         },
         {
-          "name": "Job?",
-          "desc": "you has job?"
+          "name": "MFC",
+          "desc": "<p> I used <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> extensively while working at <a href='https://www.acdsystems.com/'>ACD Systems</a> to develop the GUI of the flagship product ACDSee. </p>"
         },
         {
-          "name": "Jerb?",
-          "desc": "u haz jerb?"
+          "name": "Web API & Oauth",
+          "desc": "<p>While working at <a href='https://www.acdsystems.com/'>ACD Systems</a>, I used web APIs from various sites to provide image sharing features for our product, ACDSee. This involved handling both standard REST communication, and the <a href='https://oauth.net/2/'>Oauth</a> authentication process.</p>"
+        },
+        {
+          "name": "C++",
+          "desc": "<a href='https://isocpp.org/'> C++ </a> was the second language I learned after <a href='https://www.python.org/'>Python</a>. It has been my favorite language for almost my entire life (<a href='https://golang.org/'>golang</a> only recently took that title). I used <a href='https://isocpp.org/'> C++ </a> extensively at both, <a href='https://www.acdsystems.com/'>ACD Systems</a>, and <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> to develop their respective products (ACDSee / CX-C)."
+        },
+        {
+          "name": "Visual Studio",
+          "desc": "Throughout my early programming days and in to my time at  <a href='https://www.acdsystems.com/'>ACD Systems</a> I have put thousands of hours in to <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>. I will note that more recently I have moved to an <a href='https://atom.io/'>Atom</a> + terminal environment on Linux/Mac."
+        },
+        {
+          "name": "Agile",
+          "desc": "At <a href='https://www.acdsystems.com/'>ACD Systems</a> I participated in an <a href='https://en.wikipedia.org/wiki/Agile_software_development'>agile</a> development team. We had monthly sprints and dally scrums. This experience will no doubt allow me to work effectively in future agile teams."
+        },
+        {
+          "name": "Perforce",
+          "desc": "During my time as a developer at both <a href='https://www.acdsystems.com/'>ACD Systems</a> and <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I worked in teams that used <a href='https://www.perforce.com/'>Perforce</a> as a collaboration and code base management tool."
         }
       ]
     },
@@ -25,22 +41,6 @@
       "headerClass":  "personal-header",
       "itemClass":    "btn-pers",
       "items": [
-        {
-          "name": "Hey Buddy!",
-          "desc": "I'm not your buddy guy!"
-        },
-        {
-          "name": "I'm not your Guy",
-          "desc": "Friend!"
-        },
-        {
-          "name": "I'm not your friend",
-          "desc": "Buddy!"
-        },
-        {
-          "name": "TrollFace.jpg",
-          "desc": "<img src='https://i.kym-cdn.com/photos/images/original/000/096/044/trollface.jpg' width='124' height='124'></img>"
-        }
       ]
     },
     {
@@ -48,14 +48,6 @@
       "headerClass":  "passing-header",
       "itemClass":    "btn-pass",
       "items": [
-        {
-          "name": "more",
-          "desc": "some thing else."
-        },
-        {
-          "name": "Transport Fever",
-          "desc": "I keep going bankrupt."
-        }
       ]
     }
   ]

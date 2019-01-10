@@ -24,9 +24,14 @@ html {
         }
       }
 
+      .btn:hover {
+        padding: 10px 15px 10px 15px;
+      }
+
       .btn {
         margin-bottom: 3px;
         color: white;
+        transition: padding 1s;
 
         // professional buttons
         &.btn-pro {
