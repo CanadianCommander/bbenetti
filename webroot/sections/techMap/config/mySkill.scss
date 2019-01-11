@@ -2,13 +2,15 @@
 
 html {
     .col {
-      padding: 5px;
+      padding: 0px;
+      transition: flex-grow 1s;
       margin-right: 15px;
+      margin-left: 5px;
       border-radius: 5px;
 
       h3 {
-        text-align: center;
-        margin: 0 0 5px 0;
+        text-align: left;
+        margin: 0 0 5px 10px;
         padding: 0px;
 
         &.professional-header {
@@ -58,5 +60,4 @@ html {
         }
       }
     }
-
 }

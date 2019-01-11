@@ -8,15 +8,15 @@
       "items": [
         {
           "name": "Desktop Application Development",
-          "desc": "<p> During my time at <a href='https://www.acdsystems.com/'>ACD Systems</a> I worked on their flagship photography suite, ACDSee. ACDSee is a desktop application designed for professional photographers to manage and edit their photos. ACDSee is built on a large C++ code base, and leverages Microsoft's <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> and <a href='https://docs.microsoft.com/en-us/windows/desktop/directx'>Direct X </a> APIs. In working on this product I gained valuable experience in working on large object oriented code bases, and in developing Windows desktop applications in  general.</p>"
+          "desc": " During my time at <a href='https://www.acdsystems.com/'>ACD Systems</a> I worked on their flagship photography suite, ACDSee. ACDSee is a desktop application designed for professional photographers to manage and edit their photos. ACDSee is built on a large C++ code base, and leverages Microsoft's <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> and <a href='https://docs.microsoft.com/en-us/windows/desktop/directx'>Direct X </a> APIs. In working on this product I gained valuable experience in working on large object oriented code bases, and in developing Windows desktop applications in  general."
         },
         {
           "name": "MFC",
-          "desc": "<p> I used <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> extensively while working at <a href='https://www.acdsystems.com/'>ACD Systems</a> to develop the GUI of the flagship product ACDSee. </p>"
+          "desc": " I used <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> extensively while working at <a href='https://www.acdsystems.com/'>ACD Systems</a> to develop the GUI of the flagship product ACDSee."
         },
         {
           "name": "Web API & Oauth",
-          "desc": "<p>While working at <a href='https://www.acdsystems.com/'>ACD Systems</a>, I used web APIs from various sites to provide image sharing features for our product, ACDSee. This involved handling both standard REST communication, and the <a href='https://oauth.net/2/'>Oauth</a> authentication process.</p>"
+          "desc": "While working at <a href='https://www.acdsystems.com/'>ACD Systems</a>, I used web APIs from various sites to provide image sharing features for our product, ACDSee. This involved handling both standard REST communication, and the <a href='https://oauth.net/2/'>Oauth</a> authentication process."
         },
         {
           "name": "C++",
@@ -33,6 +33,46 @@
         {
           "name": "Perforce",
           "desc": "During my time as a developer at both <a href='https://www.acdsystems.com/'>ACD Systems</a> and <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I worked in teams that used <a href='https://www.perforce.com/'>Perforce</a> as a collaboration and code base management tool."
+        },
+        {
+          "name": "Direct2d & GDI+",
+          "desc": "At <a href='https://www.acdsystems.com/'>ACD Systems</a> I used both <a href='https://docs.microsoft.com/en-us/windows/desktop/gdi/windows-gdi'> GDI/GDI+ </a> and <a href='https://docs.microsoft.com/en-ca/windows/desktop/Direct2D/direct2d-portal'> Direct2d </a> to product custom  <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> controls, and image editing features for the ACDSee software suite."
+        },
+        {
+          "name": "Linux",
+          "desc": "Believe it or not I used to be a Windows man. This all changed when I got my possition at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> all the systems run <a href='https://www.redhat.com/en'>RedHat Linux</a>. This posed a significant challenge to me as a Windows programmer, but I met that challenge. Working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to develop my ability to work in a Linux environment, and build enterprise class Linux applications (<a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C telephony server</a>). Furthermore, working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to truly discover the freedom that is Linux. I nolonger have a single machine running Windows (real or virtual) and am a huge fan of the <a href='https://www.gnu.org/home.en.html'>GNU organization</a>. I have moved away from monolithic development environments like <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>, toward a Terminal + Make + GCC + Text Editor environment. I feel the move to linux has greatly augmented my capability as a developer and increased my understanding of how operating systems work. I love Linux!"
+        },
+        {
+          "name": "Backend Application Development",
+          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I worked on an enterprise telephony server application, <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a>. This gave me valuable experience with backend high availability server architectures running on <a href='https://www.redhat.com/en'>RedHat Linux</a>. This includes concerns of QoS, backups, scalability, security, privacy, availability and disaster recovery."
+        },
+        {
+          "name": "SQL",
+          "desc": "<a href='https://en.wikipedia.org/wiki/SQL'>SQL</a> is a mainstay in almost every application. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> this was no different. Our <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> product uses <a href='https://en.wikipedia.org/wiki/SQL'>SQL</a> as its data storage and recall mechanism. Along with the odd query here and their that one must perform in the development of a server side application, I also was tasked with migrating <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> from <a href='https://www.ibm.com/analytics/us/en/db2/'>IBM DB2</a> to <a href='https://www.mysql.com/'>MySQL</a>. This involved modification of about 600 stored procedures among other things. I continue to use <a href='https://en.wikipedia.org/wiki/SQL'>SQL</a>, most recently in my web server (that is running this site) <a href='https://github.com/CanadianCommander/MicroWeb'>MicroWeb</a>."
+        },
+        {
+          "name": "Bash",
+          "desc": "I often use <a href='https://www.gnu.org/software/bash/'>Bash</a> to stitch together applications, and automate tasks. This is what I did at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> as <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> is comprised of multiple binaries, and scripts running from init.d, systemd, and cron. The glue that allows these applications to operate in unison is <a href='https://www.gnu.org/software/bash/'>Bash</a>. For example, the <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> installer is just one really long <a href='https://www.gnu.org/software/bash/'>Bash</a> script."
+        },
+        {
+          "name": "Python",
+          "desc": "I have used <a href='https://www.python.org/'>Python</a> both at school and at work. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I used <a href='https://www.python.org/'>Python</a> as a intermediate language between a full application and a shell script. That is,  <a href='https://www.python.org/'>Python</a> comes in to play when the job is to large for <a href='https://www.gnu.org/software/bash/'>Bash</a> but, to small for <a href='https://isocpp.org/'> C++ </a>. Additonally, <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> is built using <a href='https://scons.org/'>SCons</a> which is a build system like <a href='https://www.gnu.org/software/make/'>Make</a> but, you use <a href='https://www.python.org/'>Python</a> instead of <a href='https://www.gnu.org/software/bash/'>Bash</a>."
+        },
+        {
+          "name": "SCons",
+          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we used <a href='https://scons.org/'>SCons</a> as the build system for <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a>. <a href='https://scons.org/'>SCons</a> is a build system similar to <a href='https://www.gnu.org/software/make/'>Make</a>."
+        },
+        {
+          "name": "Networking",
+          "desc": "During my time at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I worked on a networking focused application, <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a>. This application requires 100% up time, often servicing thousands of requests simaltainiously. Thus, having clean, and efficient networking is key. The main networking protocols in use are, <a href='https://en.wikipedia.org/wiki/Session_Initiation_Protocol'>SIP</a>, <a href='https://en.wikipedia.org/wiki/Real-time_Transport_Protocol'>RTP</a>, and <a href='https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol'>HTTP</a>."
+        },
+        {
+          "name": "VM Environments",
+          "desc": "While working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I often used multiple virtual machines in my development / testing. I continue to use VMs today, via <a href='https://www.digitalocean.com/'>DigitalOcean</a>"
+        },
+        {
+          "name": "Remote Managment",
+          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we had a server room in the basement. This room housed the development servers equipped with special telephony hardware. <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> cannot run on a normal computer and must run on these servers. As such I gained valuable experience in administering remote machines via <a href='https://www.openssh.com/'>SSH</a>. Today I simply prefer to do all computing tasks through the terminal making remote administration just as easy as local."
         }
       ]
     },
@@ -41,6 +81,18 @@
       "headerClass":  "personal-header",
       "itemClass":    "btn-pers",
       "items": [
+        {
+          "name": "3D Graphics",
+          "desc": "3D graphics started it all. The entire reason I wanted to learn how to program was so that I could make my own game. And that I did, In grade 12 I made a <a href='https://isocpp.org/'> C++ </a> and <a href='https://www.opengl.org/'>OpenGL</a> based 3D Multiplayer first person shooter for the yearly <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a> competition (was the only one who didn't use <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a>). Moving forward I have continued to build my skills, learning various graphics techniques like, Differed Rendering, Screen Space Lighting, and Shadow Mapping. Additionally I have a firm grasp of 3D Math (Linear Algebra). As for formal education, I have taken both 2D, and 3D graphics courses offered by my University to high marks."
+        },
+        {
+          "name": "Java",
+          "desc": "I learned <a href='https://www.oracle.com/java/'>Java</a> on my own for the hell of it (I often do projects in new languages to learn them). It proves a robust and well used language. Many University courses are taught in <a href='https://www.oracle.com/java/'>Java</a>. Additionally, its similarity to <a href='https://isocpp.org/'> C++ </a> makes it easy to learn and remember."
+        },
+        {
+          "name": "Scala",
+          "desc": "Will taking the Compiler course at my University I decided to write <a href='https://github.com/CanadianCommander/Compilator'>my compiler</a> in <a href='https://www.scala-lang.org/'>Scala</a>. I picked <a href='https://www.scala-lang.org/'>Scala</a> because it is a hybrid object oriented - functional language. Having just done a course on functional programming I was excited to have a language that includes my new favorite features, Pattern Matching, Map, Reduce, and Filter! Not to mention many of these operations are easily parallelized!"
+        }
       ]
     },
     {
