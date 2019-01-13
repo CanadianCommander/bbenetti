@@ -15,6 +15,7 @@ type ConfigurationData struct {
 	Css      []string
 	Sections []struct {
 		Header,
+		HeaderTooltip,
 		HeaderClass,
 		ItemClass string
 		Items []struct {

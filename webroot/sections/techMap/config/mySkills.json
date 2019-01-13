@@ -3,11 +3,12 @@
   "sections": [
     {
       "header":      "Professional",
+      "headerTooltip": "Technologies I have used in a professional context.",
       "headerClass": "professional-header",
       "itemClass":    "btn-pro",
       "items": [
         {
-          "name": "Desktop Application Development",
+          "name": "Desktop Development",
           "desc": " During my time at <a href='https://www.acdsystems.com/'>ACD Systems</a> I worked on their flagship photography suite, ACDSee. ACDSee is a desktop application designed for professional photographers to manage and edit their photos. ACDSee is built on a large C++ code base, and leverages Microsoft's <a href='https://docs.microsoft.com/en-us/cpp/mfc/mfc-desktop-applications?view=vs-2017'> MFC </a> and <a href='https://docs.microsoft.com/en-us/windows/desktop/directx'>Direct X </a> APIs. In working on this product I gained valuable experience in working on large object oriented code bases, and in developing Windows desktop applications in  general."
         },
         {
@@ -43,7 +44,7 @@
           "desc": "Believe it or not I used to be a Windows man. This all changed when I got my possition at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> all the systems run <a href='https://www.redhat.com/en'>RedHat Linux</a>. This posed a significant challenge to me as a Windows programmer, but I met that challenge. Working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to develop my ability to work in a Linux environment, and build enterprise class Linux applications (<a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C telephony server</a>). Furthermore, working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to truly discover the freedom that is Linux. I nolonger have a single machine running Windows (real or virtual) and am a huge fan of the <a href='https://www.gnu.org/home.en.html'>GNU organization</a>. I have moved away from monolithic development environments like <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>, toward a Terminal + Make + GCC + Text Editor environment. I feel the move to linux has greatly augmented my capability as a developer and increased my understanding of how operating systems work. I love Linux!"
         },
         {
-          "name": "Backend Application Development",
+          "name": "Backend Development",
           "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I worked on an enterprise telephony server application, <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a>. This gave me valuable experience with backend high availability server architectures running on <a href='https://www.redhat.com/en'>RedHat Linux</a>. This includes concerns of QoS, backups, scalability, security, privacy, availability and disaster recovery."
         },
         {
@@ -73,17 +74,46 @@
         {
           "name": "Remote Managment",
           "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we had a server room in the basement. This room housed the development servers equipped with special telephony hardware. <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> cannot run on a normal computer and must run on these servers. As such I gained valuable experience in administering remote machines via <a href='https://www.openssh.com/'>SSH</a>. Today I simply prefer to do all computing tasks through the terminal making remote administration just as easy as local."
+        },
+        {
+          "name": "Telephony",
+          "desc": "While working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I gained valuable knowledge in to how, <a href='https://en.wikipedia.org/wiki/Voice_over_IP'>VoIP</a>, and the <a href='https://en.wikipedia.org/wiki/Public_switched_telephone_network'>PSTN</a> work."
         }
       ]
     },
     {
       "header":       "Personal",
+      "headerTooltip":"Technologies I learned at University or on my own.",
       "headerClass":  "personal-header",
       "itemClass":    "btn-pers",
       "items": [
         {
+          "name": "Deep Learning",
+          "desc": "I have taken two classes on Deep Learning at University, Natural Language Processing, and Deep Learning For Image Processing. These two classes have provided me with the foundational skills required to develop Neural Networks in <a href='https://www.tensorflow.org/'>Tensorflow</a>. I was fortunate enough to get a chance to apply these skills when I became a member of a team that <a href='https://aclanthology.coli.uni-saarland.de/papers/W17-5023/w17-5023'>submitted a paper</a> to the <a href='http://acl2017.org/'>ACL 2017 conference</a>. Said paper was accepted and we got to send one member over to Denmark for a poster presentation!"
+        },
+        {
           "name": "3D Graphics",
           "desc": "3D graphics started it all. The entire reason I wanted to learn how to program was so that I could make my own game. And that I did, In grade 12 I made a <a href='https://isocpp.org/'> C++ </a> and <a href='https://www.opengl.org/'>OpenGL</a> based 3D Multiplayer first person shooter for the yearly <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a> competition (was the only one who didn't use <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a>). Moving forward I have continued to build my skills, learning various graphics techniques like, Differed Rendering, Screen Space Lighting, and Shadow Mapping. Additionally I have a firm grasp of 3D Math (Linear Algebra). As for formal education, I have taken both 2D, and 3D graphics courses offered by my University to high marks."
+        },
+        {
+          "name": "Golang",
+          "desc": "I recently picked <a href='https://golang.org/'>Golang</a> up after hearing good things about it. I have to say, This is the best language I have ever used! It is just a fantastic design. Not to mention the superb <a href='https://golang.org/pkg/'>standard library</a>. I have only done one project in Go so far, my \"learn Go project\". As I learn best through doing, not following step 1,2,3 tutorials I built my web server in Go, <a href='https://github.com/CanadianCommander/MicroWeb'>MicroWeb</a> (the server running this site)."
+        },
+        {
+          "name": "IoT",
+          "desc": "I fancy my self a \"Maker\". What this means is that I tinker with microcontrollers, electronics, and 3d printers to make little projects like, <a href='https://github.com/CanadianCommander/armboy-kernel/wiki/Hardware'>ArmBoy</a>, <a href='https://github.com/CanadianCommander/BuckConverter'>BuckConverter</a>, <a href='https://github.com/CanadianCommander/armboy-fs'>SD Card Library</a>, and <a href='https://github.com/CanadianCommander/RF24L01'>RF24L01 Library</a>. I have also taken a class on embedded system programming at my University. Between the class and my self education I would consider my self quite capable of writing embedded system software."
+        },
+        {
+          "name": "ARM",
+          "desc": "I have experience writing software for <a href='https://www.arm.com/'>ARM</a> <a href='https://www.arm.com/products/silicon-ip-cpu'>cortex-M</a> class microcontrollers. Mainly the, <a href='http://ww1.microchip.com/downloads/en/devicedoc/atmel-11057-32-bit-cortex-m3-microcontroller-sam3x-sam3a_datasheet.pdf'>Sam3x8e</a> microcontroller found on the ArduinoDue. On this chip I wrote an operating system from absolute scratch (pure C, no Arduino Libraries), <a href='https://github.com/CanadianCommander/armboy-kernel'>armboy-kernel</a>."
+        },
+        {
+          "name": "AVR",
+          "desc": "When you dont want the extra capability and complexity of an <a href='https://www.arm.com/'>ARM</a> chip, an <a href='https://en.wikipedia.org/wiki/AVR_microcontrollers'>AVR</a> chip can be a good choice. I use these chips a lot in my Maker projects (like <a href='https://github.com/CanadianCommander/BuckConverter'>My Buck Converter</a>). Mostly the <a href='https://www.sparkfun.com/datasheets/Components/SMD/ATMega328.pdf'>atmeg328p</a> due to its low price (I go through them like potato chips)."
+        },
+        {
+          "name": "Unit Testing",
+          "desc": "I always strive to write code that is as maintainable as possible. One important aspect of code maintainability is <a href='https://en.wikipedia.org/wiki/Unit_testing'>units tests</a> as a mechanism to prevent regressions. Thus, I always try to write unit tests where applicable, <a href='https://github.com/CanadianCommander/MicroWeb'>MicroWeb</a>, <a href='https://github.com/CanadianCommander/Compilator'>Compilator</a>."
         },
         {
           "name": "Java",
@@ -91,15 +121,64 @@
         },
         {
           "name": "Scala",
-          "desc": "Will taking the Compiler course at my University I decided to write <a href='https://github.com/CanadianCommander/Compilator'>my compiler</a> in <a href='https://www.scala-lang.org/'>Scala</a>. I picked <a href='https://www.scala-lang.org/'>Scala</a> because it is a hybrid object oriented - functional language. Having just done a course on functional programming I was excited to have a language that includes my new favorite features, Pattern Matching, Map, Reduce, and Filter! Not to mention many of these operations are easily parallelized!"
+          "desc": "Will taking the Compiler course at my University I decided to write <a href='https://github.com/CanadianCommander/Compilator'>my compiler</a> in <a href='https://www.scala-lang.org/'>Scala</a>. I picked <a href='https://www.scala-lang.org/'>Scala</a> because it is a hybrid object oriented - functional language. Having just done a course on functional programming I was excited to have a language that includes my new favorite features, Pattern Matching, Map, Reduce, and Filter!"
+        },
+        {
+          "name": "Make",
+          "desc": "In my personal projects I routinely use Make as my preferred build tool. I like it because it allows you to specify build steps using normal <a href='https://www.gnu.org/software/bash/'>Bash</a> commands, and it is highly tied in to the <a href='https://en.wikipedia.org/wiki/Unix'>UNIX</a> way of doing things."
+        },
+        {
+          "name": "asm",
+          "desc": "I have experience in writing assembly code. This experience comes both from University classes teaching <a href='http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf'>AVR assembly</a> programming and from my personal projects with <a href='https://web.eecs.umich.edu/~prabal/teaching/eecs373-f10/readings/ARMv7-M_ARM.pdf'>ARMv7 assembly</a>. Such as, my operating system, <a href='https://github.com/CanadianCommander/armboy-kernel'>armboy-kernel</a>."
+        },
+        {
+          "name": "C",
+          "desc": "I primarily use C as my language of choice for <a href='https://en.wikipedia.org/wiki/Microcontroller'>MCU</a> programming. Then if I need assembly I simply use inline assembly. See the, <a href='https://github.com/CanadianCommander/sam3x8eHardwareAPI/blob/master/src/contextSwitching/cSwitch.h'>sam3x8eHardwareAPI</a> for a good example."
+        },
+        {
+          "name": "Web Technologies",
+          "desc": "I have used the primary web technologies on and off throughout the years. I even worked with HTML, and CSS a little bit while at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. This was necessary as the administrator interface for the <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> server is a website. However, I didn't do much, so I'm keeping this section in the personal column. The biggest demonstrable record of my use of web technologies is <a href='https://github.com/CanadianCommander/bbenetti'>this site</a>. Built on <a href='https://en.wikipedia.org/wiki/HTML'>HTML</a>, <a href='https://sass-lang.com/'>SCSS</a>, <a href='https://getbootstrap.com/'>Bootstrap</a>, <a href='https://www.javascript.com/'>JS</a>, and <a href='https://www.golang.org'>Go</a>."
+        },
+        {
+          "name": "Video Encoding",
+          "desc": "At University I took a course called, \"Multimedia Systems\". This course provided me with the knowledge to understand video encoding and compression, among other things. As the final project for this course me and my friend made a basic (very basic) <a href='https://github.com/CanadianCommander/csc461_project'>live streaming application</a> using VP8/9 and H.264/265."
+        },
+        {
+          "name": "Operating Systems",
+          "desc": "I have always been driven by a need to understand and do things myself. I always feel uncomfortable using a library that I do not think I could write. To that end I have always strived to understand, at a deeper level, the operation of a computer. After taking a forth year course on MCU programming, \"Real Time Systems\" I wrote <a href='https://github.com/CanadianCommander/armboy-kernel/wiki/Software'>my own operating system</a> to put in to practice all I have learned and to better understand operating systems."
+        },
+        {
+          "name": "Compression",
+          "desc": "A few University classes have touched on compression but the one that did the most has to be, \"Multimedia Systems\". This class has given me knowledge of lossy and lossless compression for audio, images, and video. Including techniques such as, <a href='https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch'>LZW compression</a>, <a href='https://en.wikipedia.org/wiki/Chroma_subsampling'>YUV subsampling</a>, and <a href='https://en.wikipedia.org/wiki/Discrete_cosine_transform'>discrete cosine transform</a>."
+        },
+        {
+          "name": "Security",
+          "desc": "Security is an ever growing concern in todays technology driven world. Through University classes and my own self directed learning I have developed the skills necessary to keep an application secure. This includes things like, symmetrical encryption (<a href='https://en.wikipedia.org/wiki/Advanced_Encryption_Standard'>AES</a>, <a href='https://en.wikipedia.org/wiki/Data_Encryption_Standard'>DES</a>), asymmetrical encryption (<a href='https://en.wikipedia.org/wiki/RSA_(cryptosystem)'>RSA</a>), secure hashing and salting (<a href='https://en.wikipedia.org/wiki/SHA-2'>SHA-2</a>), secure key exchange (<a href='https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange'>Diffie Hellman</a>, <a href='https://en.wikipedia.org/wiki/X.509'>x.509</a>), web based attacks (<a href='https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)'>XSS</a>, <a href='https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)'>CSRF</a>, <a href='https://www.owasp.org/index.php/SQL_Injection'>SQL injection</a>), and buffer overrun attacks (<a href='https://www.owasp.org/index.php/Buffer_Overflows#Stack_Overflow'>Stack overflow</a>, <a href='https://www.owasp.org/index.php/Buffer_Overflows#Heap_Overflow'>heap overflow</a>, <a href='https://en.wikipedia.org/wiki/Return-to-libc_attack'>return to library code</a>)."
+        },
+        {
+          "name": "JS & jQuery",
+          "desc": "If your doing any thing on the web you really have no choice but to use  <a href='https://www.javascript.com/'>JS</a>. Furthermore, if you are not a mad man you must use <a href='https://jquery.com/'>jQuery</a>, its utility is just to good to ignore. Thus, I have used <a href='https://jquery.com/'>jQuery</a> and <a href='https://www.javascript.com/'>JS</a> to build multiple web sites/applications. For an example see, <a href='https://github.com/CanadianCommander/bbenetti'>the site you're viewing right now</a>."
         }
       ]
     },
     {
       "header":       "Passing",
+      "headerTooltip": "Technologies I have only a small familiarity with.",
       "headerClass":  "passing-header",
       "itemClass":    "btn-pass",
       "items": [
+        {
+          "name": "node.js",
+          "desc": "I know <a href='https://nodejs.org/en/about/'>node.js</a> is very popular. I've been rather indifferent toward <a href='https://nodejs.org/en/about/'>node.js</a>, preferring compiled languages on the server side for their speed. I have however dabbled with <a href='https://nodejs.org/en/about/'>node.js</a>, including <a href='https://angular.io/'>Angular</a>. I have an old <a href='https://web.uvic.ca/calendar2019-01/CDs/SENG/310.html'>SENG310</a> project based on node, <a href='https://github.com/CanadianCommander/seng310_UvicGroupFinder'>UvicGroupFinder</a>, a little to ambitious for the class (was supposed to by a 'fake' mockup). "
+        },
+        {
+          "name": "Pug",
+          "desc": "In the instances that I find my self using <a href='https://nodejs.org/en/about/'>node.js</a>, my go to template language is <a href='https://pugjs.org/api/getting-started.html'>Pug</a> (formally known as Jade)."
+        },
+        {
+          "name": "Pure Functional Languages",
+          "desc": "At my University I took, \"<a href='https://web.uvic.ca/calendar2019-01/CDs/CSC/330.html'>CSC 330 Programming Languages</a>\". I'm sure it changes based on the instructor but, when I took it, it should have been called, \"Functional Programming Languages\". This class had a major component on, <a href='https://www.smlnj.org/'>sml</a> a pure functional language quite different from the object oriented languages we are used to seeing."
+        }
       ]
     }
   ]

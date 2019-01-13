@@ -11,8 +11,8 @@
 
   <div class="row justify-content-center mb-2 p-2 m-0" style="flex:auto;">
     {{range .Sections}}
-      <div class="col" onmouseenter="techMapHoverIn(event)" onmouseleave="techMapHoverOut(event)">
-        <h3 class="{{.HeaderClass}}"> {{.Header}} </h3>
+      <div class="col" onmouseover="techMapHoverIn(event)" onmouseout="techMapHoverOut(event)">
+        <h3 class="{{.HeaderClass}}" title="{{.HeaderTooltip}}" > {{.Header}} </h3>
         {{$iClass := .ItemClass}}
         {{range .Items}}
           <button class="btn {{$iClass}}" type="button" data="{{.Id}}" onclick="techMapItemClick(event)">

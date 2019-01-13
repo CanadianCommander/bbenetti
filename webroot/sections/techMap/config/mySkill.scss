@@ -1,63 +1,61 @@
 @import "../../../scss/theme.scss";
 
 html {
-    .col {
+  .col {
+    padding: 0px;
+    transition: padding 1s;
+    margin-right: 0px;
+    margin-left: 5px;
+    border-radius: 5px;
+
+    h3 {
+      text-align: left;
+      margin: 0 0 5px 10px;
       padding: 0px;
-      transition: flex-grow 1s;
-      margin-right: 15px;
-      margin-left: 5px;
-      border-radius: 5px;
+      cursor: help;
 
-      h3 {
-        text-align: left;
-        margin: 0 0 5px 10px;
-        padding: 0px;
-
-        &.professional-header {
-          color: #26a65b;
-        }
-
-        &.personal-header {
-          color: #87d37c;
-        }
-
-        &.passing-header {
-          color:  #e9d460;
-        }
+      &.professional-header {
+        color: #26a65b;
       }
 
-      .btn:hover {
-        padding: 10px 15px 10px 15px;
+      &.personal-header {
+        color: #87d37c;
       }
 
-      .btn {
-        margin-bottom: 3px;
-        color: white;
-        transition: padding 1s;
-
-        // professional buttons
-        &.btn-pro {
-          background-color: $best;
-        }
-        &.btn-pro:hover {
-          background-color: $best-bold;
-        }
-
-        // personal buttons
-        &.btn-pers {
-          background-color: $prettyGood;
-        }
-        &.btn-pers:hover {
-          background-color: $prettyGood-bold;
-        }
-
-        // passing buttons
-        &.btn-pass {
-          background-color: $mediocre;
-        }
-        &.btn-pass:hover {
-          background-color: $mediocre-bold;
-        }
+      &.passing-header {
+        color:  #e9d460;
       }
     }
+
+    .btn {
+      padding: 6px  12px 6px  12px;
+      margin: 1px 1px  4px  1px;
+      color: white;
+      transition: padding 0.75s, margin 0.75s;
+
+      // professional buttons
+      &.btn-pro {
+        background-color: $best;
+      }
+      &.btn-pro:hover {
+        background-color: $best-bold;
+      }
+
+      // personal buttons
+      &.btn-pers {
+        background-color: $prettyGood;
+      }
+      &.btn-pers:hover {
+        background-color: $prettyGood-bold;
+      }
+
+      // passing buttons
+      &.btn-pass {
+        background-color: $mediocre;
+      }
+      &.btn-pass:hover {
+        background-color: $mediocre-bold;
+      }
+    }
+  }
 }
