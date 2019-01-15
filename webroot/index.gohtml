@@ -15,26 +15,28 @@
     <script src="/vendor/jquery-3.3.1.min.js"></script>
     <script src="/vendor/bootstrap-4.1.3/bootstrap.min.js"></script>
 
+    <!-- top of page animation -->
     <div class="container no-padding">
       <img src="/media/portraitPH.jpeg" class="portrait bg-dark"/>
       {{template `animation` animation "animationArea"}}
     </div>
 
+    <!--- main content -->
     <div class="container no-padding">
       <div class="container-fluid no-margin bg-primary">
-        {{template `staticTemplate` staticTemplate "sections/testSection.gohtml"}}
+        {{template `staticTemplate` staticTemplate "sections/introduction.gohtml"}}
       </div>
-
       <div class="container-fluid bg-secondary">
         {{template `staticTemplate` staticTemplate "sections/technicalSkills.gohtml"}}
       </div>
-
-      <div class="container-fluid bg-primary">
-        {{template `staticTemplate` staticTemplate "sections/testSection2.gohtml"}}
+      <div class="container-fluid  bg-primary">
+        {{template `staticTemplate` staticTemplate "sections/experience.gohtml"}}
       </div>
-
-      <div class="container-fluid bg-secondary">
-        {{template `staticTemplate` staticTemplate "sections/testSection2.gohtml"}}
+      <div class="container-fluid  bg-secondary">
+        {{template `staticTemplate` staticTemplate "sections/contact.gohtml"}}
+      </div>
+      <div class="container-fluid" style="min-height: 200px;">
+        <!-- blank element to allow over-scroll -->
       </div>
     </div>
 

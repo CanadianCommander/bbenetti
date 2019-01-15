@@ -1,6 +1,11 @@
 @import "../../../scss/theme.scss";
 
 html {
+
+  .columnContainer {
+    min-height: 410px;
+  }
+
   .col {
     padding: 0px;
     transition: padding 1s;

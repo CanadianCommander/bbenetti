@@ -136,6 +136,10 @@
           "desc": "I primarily use C as my language of choice for <a href='https://en.wikipedia.org/wiki/Microcontroller'>MCU</a> programming. Then if I need assembly I simply use inline assembly. See the, <a href='https://github.com/CanadianCommander/sam3x8eHardwareAPI/blob/master/src/contextSwitching/cSwitch.h'>sam3x8eHardwareAPI</a> for a good example."
         },
         {
+          "name": "git",
+          "desc": "It should come as no surprise, due to my GitHub activity, that I use <a href='https://git-scm.com/'>git</a>. <a href='https://git-scm.com/'>git</a> is my go to source code management tool. While I have mostly use it alone, I have used it in teams during University group projects."
+        },
+        {
           "name": "Web Technologies",
           "desc": "I have used the primary web technologies on and off throughout the years. I even worked with HTML, and CSS a little bit while at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. This was necessary as the administrator interface for the <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> server is a website. However, I didn't do much, so I'm keeping this section in the personal column. The biggest demonstrable record of my use of web technologies is <a href='https://github.com/CanadianCommander/bbenetti'>this site</a>. Built on <a href='https://en.wikipedia.org/wiki/HTML'>HTML</a>, <a href='https://sass-lang.com/'>SCSS</a>, <a href='https://getbootstrap.com/'>Bootstrap</a>, <a href='https://www.javascript.com/'>JS</a>, and <a href='https://www.golang.org'>Go</a>."
         },
