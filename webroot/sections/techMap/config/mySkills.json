@@ -61,7 +61,7 @@
         },
         {
           "name": "SCons",
-          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we used <a href='https://scons.org/'>SCons</a> as the build system for <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a>. <a href='https://scons.org/'>SCons</a> is a build system similar to <a href='https://www.gnu.org/software/make/'>Make</a>."
+          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we used <a href='https://scons.org/'>SCons</a> as the build system for <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a>. <a href='https://scons.org/'>SCons</a> is a build system similar to <a href='https://www.gnu.org/software/make/'>Make</a> but, it is based on <a href='https://www.python.org/'>Python</a>."
         },
         {
           "name": "Networking",
@@ -72,7 +72,7 @@
           "desc": "While working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I often used multiple virtual machines in my development / testing. I continue to use VMs today, via <a href='https://www.digitalocean.com/'>DigitalOcean</a>"
         },
         {
-          "name": "Remote Managment",
+          "name": "Remote Administration",
           "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we had a server room in the basement. This room housed the development servers equipped with special telephony hardware. <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> cannot run on a normal computer and must run on these servers. As such I gained valuable experience in administering remote machines via <a href='https://www.openssh.com/'>SSH</a>. Today I simply prefer to do all computing tasks through the terminal making remote administration just as easy as local."
         },
         {
@@ -101,7 +101,7 @@
         },
         {
           "name": "IoT",
-          "desc": "I fancy my self a \"Maker\". What this means is that I tinker with microcontrollers, electronics, and 3d printers to make little projects like, <a href='https://github.com/CanadianCommander/armboy-kernel/wiki/Hardware'>ArmBoy</a>, <a href='https://github.com/CanadianCommander/BuckConverter'>BuckConverter</a>, <a href='https://github.com/CanadianCommander/armboy-fs'>SD Card Library</a>, and <a href='https://github.com/CanadianCommander/RF24L01'>RF24L01 Library</a>. I have also taken a class on embedded system programming at my University. Between the class and my self education I would consider my self quite capable of writing embedded system software."
+          "desc": "I fancy my self a \"Maker\". What this means is that I tinker with microcontrollers, electronics, and 3d printers to make little projects like, <a href='https://github.com/CanadianCommander/armboy-kernel/wiki/Hardware'>ArmBoy</a>, <a href='https://github.com/CanadianCommander/BuckConverter'>BuckConverter</a>, <a href='https://github.com/CanadianCommander/armboy-fs'>SD Card Library</a>, and <a href='https://github.com/CanadianCommander/RF24L01'>RF24L01 Library</a>. I have also taken a classes on embedded system programming at my University. Between the classes and my self education I would consider my self quite capable of writing embedded system software."
         },
         {
           "name": "ARM",
@@ -178,6 +178,10 @@
         {
           "name": "Pug",
           "desc": "In the instances that I find my self using <a href='https://nodejs.org/en/about/'>node.js</a>, my go to template language is <a href='https://pugjs.org/api/getting-started.html'>Pug</a> (formally known as Jade)."
+        },
+        {
+          "name": "DirectX",
+          "desc": "In my high school days I dabbled in <a href='https://docs.microsoft.com/en-us/windows/desktop/directx'>DirectX</a> to produce various 2D games. Beyond that I have not used it much, If I where to use it today I would have to rely on its similarity to <a href='https://www.opengl.org/'>OpenGL</a>, which I know well."
         },
         {
           "name": "Pure Functional Languages",
