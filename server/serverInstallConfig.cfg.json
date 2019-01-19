@@ -1,0 +1,54 @@
+{
+  "general": {
+    "TCPProtocol":      "tcp4",
+    "TCPPort":          ":80",
+    "staticDirectory":  "/var/www/",
+    "logFile":          "/var/log/microweb.log",
+    "logVerbosity":     "info",
+    "autoReloadSettings": false
+  },
+
+  "tls": {
+    "enableTLS": false
+  },
+
+  "tune": {
+    "httpReadTimeout":      "100ms",
+    "httpResponseTimeout":  "10s",
+    "cacheTTL":             "10m"
+  },
+
+  "security": {
+    "user": "www-data",
+    "strict": true
+  },
+
+  "plugin": {
+    "plugins": [
+      {
+        "binding": "/index.gohtml",
+        "plugin": "/var/www/plugins/cv/cv.so"
+      }
+    ]
+  },
+
+  "templateHelper": {
+    "plugins": [
+      {
+        "plugin": "/var/www/plugins/templatePlugins/static/static.so",
+        "name": "staticTemplate",
+        "group": "main"
+      },
+      {
+        "plugin": "/var/www/plugins/templatePlugins/animation/animation.so",
+        "name": "animation",
+        "group": "main"
+      },
+      {
+        "plugin": "/var/www/plugins/templatePlugins/techMap/techMap.so",
+        "name": "techMap",
+        "group": "main"
+      }
+    ]
+  }
+}
