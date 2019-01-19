@@ -11,7 +11,7 @@ This project is designed to run on the [microweb](https://github.com/CanadianCom
 #### Full Install:
 This install will install the microweb server and this site on to your system. This includes,
 configuration files under /etc/microweb, site content under /var/www/, and systemd files.
-- `git https://github.com/CanadianCommander/bbenetti.git # download the repository`
+- `git clone https://github.com/CanadianCommander/bbenetti.git # download the repository`
 - `make getdept`
 - `make`
 - `make install`
@@ -21,7 +21,7 @@ Done! now use `systemctl start microweb` to start your new site!
 #### Local Install:
 This install only produces files in the folder of this repository and on your GOPATH. aka,
 It doesn't clutter up your system.
-- `git https://github.com/CanadianCommander/bbenetti.git # download the repository`
+- `git clone https://github.com/CanadianCommander/bbenetti.git # download the repository`
 - `sudo -E ./server/getDependencies.sh     # download and build microweb`
 - `make`
 - `./microweb.a -c ./server/server.cfg.json   # start the web server on localhost:8080`
