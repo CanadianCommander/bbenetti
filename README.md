@@ -1,5 +1,5 @@
 # My Web CV
-As much as it pains me to make a web based "CV" thing, I figure I have to do it. So here it is (*domain name here*), lets hope it turns out.
+As much as it pains me to make a web based "CV" thing, I figure I have to do it. So here it is, [bbenetti.ca](https://bbenetti.ca/), lets hope it turns out.
 
 ## build
 This project is designed to run on the [microweb](https://github.com/CanadianCommander/MicroWeb) web server. There are two ways to install. One is a full system install where by files are installed in /etc and microweb is integrated with systemd or just a local fun install.
