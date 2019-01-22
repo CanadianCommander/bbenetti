@@ -25,11 +25,11 @@
         },
         {
           "name": "Visual Studio",
-          "desc": "Throughout my early programming days and in to my time at  <a href='https://www.acdsystems.com/'>ACD Systems</a> I have put thousands of hours in to <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>. I will note that more recently I have moved to an <a href='https://atom.io/'>Atom</a> + terminal environment on Linux/Mac."
+          "desc": "Throughout my early programming days and into my time at  <a href='https://www.acdsystems.com/'>ACD Systems</a> I have put thousands of hours in to <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>. I will note, that more recently I have moved to an <a href='https://atom.io/'>Atom</a> + terminal environment on Linux/Mac."
         },
         {
           "name": "Agile",
-          "desc": "At <a href='https://www.acdsystems.com/'>ACD Systems</a> I participated in an <a href='https://en.wikipedia.org/wiki/Agile_software_development'>agile</a> development team. We had monthly sprints and dally scrums. This experience will no doubt allow me to work effectively in future agile teams."
+          "desc": "At <a href='https://www.acdsystems.com/'>ACD Systems</a> I participated in an <a href='https://en.wikipedia.org/wiki/Agile_software_development'>agile</a> development team. We had monthly sprints and dally scrums. This experience will help me work effectively in future agile teams."
         },
         {
           "name": "Perforce",
@@ -41,7 +41,7 @@
         },
         {
           "name": "Linux",
-          "desc": "Believe it or not I used to be a Windows man. This all changed when I got my possition at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> all the systems run <a href='https://www.redhat.com/en'>RedHat Linux</a>. This posed a significant challenge to me as a Windows programmer, but I met that challenge. Working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to develop my ability to work in a Linux environment, and build enterprise class Linux applications (<a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C telephony server</a>). Furthermore, working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to truly discover the freedom that is Linux. I nolonger have a single machine running Windows (real or virtual) and am a huge fan of the <a href='https://www.gnu.org/home.en.html'>GNU organization</a>. I have moved away from monolithic development environments like <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>, toward a Terminal + Make + GCC + Text Editor environment. I feel the move to linux has greatly augmented my capability as a developer and increased my understanding of how operating systems work. I love Linux!"
+          "desc": "I used to be a pure Windows programmer. This all changed when I got my possition at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> all the systems run <a href='https://www.redhat.com/en'>RedHat Linux</a>. This posed a significant challenge to me as a Windows programmer, but I met that challenge. Working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to develop my ability to work in a Linux environment, and build enterprise class Linux applications (<a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C telephony server</a>). Furthermore, working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> allowed me to truly discover the freedom that is Linux. I no longer have a single machine running Windows (real or virtual) and am a huge fan of the <a href='https://www.gnu.org/home.en.html'>GNU organization</a>. I have moved away from monolithic development environments like <a href='https://visualstudio.microsoft.com/'>Visual Studio</a>, toward a Terminal + Make + GCC + Text Editor environment. I feel the move to linux has greatly augmented my capability as a developer and increased my understanding of how operating systems work. I love Linux!"
         },
         {
           "name": "Backend Development",
@@ -49,15 +49,15 @@
         },
         {
           "name": "SQL",
-          "desc": "<a href='https://en.wikipedia.org/wiki/SQL'>SQL</a> is a mainstay in almost every application. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> this was no different. Our <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> product uses <a href='https://en.wikipedia.org/wiki/SQL'>SQL</a> as its data storage and recall mechanism. Along with the odd query here and their that one must perform in the development of a server side application, I also was tasked with migrating <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> from <a href='https://www.ibm.com/analytics/us/en/db2/'>IBM DB2</a> to <a href='https://www.mysql.com/'>MySQL</a>. This involved modification of about 600 stored procedures among other things. I continue to use <a href='https://en.wikipedia.org/wiki/SQL'>SQL</a>, most recently in my web server (that is running this site) <a href='https://github.com/CanadianCommander/MicroWeb'>MicroWeb</a>."
+          "desc": "<a href='https://en.wikipedia.org/wiki/SQL'>SQL</a> is a mainstay in almost every application. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> this was no different. Our <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> product uses <a href='https://en.wikipedia.org/wiki/SQL'>SQL</a> as its data storage and recall mechanism. Along with the odd query here and there that one must perform in the development of a server side application, I also was tasked with migrating <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> from <a href='https://www.ibm.com/analytics/us/en/db2/'>IBM DB2</a> to <a href='https://www.mysql.com/'>MySQL</a>. This involved modification of about 600 stored procedures among other things. I continue to use <a href='https://en.wikipedia.org/wiki/SQL'>SQL</a>, most recently in my web server (that is running this site) <a href='https://github.com/CanadianCommander/MicroWeb'>MicroWeb</a>."
         },
         {
           "name": "Bash",
-          "desc": "I often use <a href='https://www.gnu.org/software/bash/'>Bash</a> to stitch together applications, and automate tasks. This is what I did at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> as <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> is comprised of multiple binaries, and scripts running from init.d, systemd, and cron. The glue that allows these applications to operate in unison is <a href='https://www.gnu.org/software/bash/'>Bash</a>. For example, the <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> installer is just one really long <a href='https://www.gnu.org/software/bash/'>Bash</a> script."
+          "desc": "I often use <a href='https://www.gnu.org/software/bash/'>Bash</a> to stitch together applications, and automate tasks. This is what I did at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a>. This was necessary as <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> is comprised of multiple binaries, and scripts running from init.d, systemd, and cron. The glue that allows these applications to operate in unison is <a href='https://www.gnu.org/software/bash/'>Bash</a>. For example, the <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> installer is just one really long <a href='https://www.gnu.org/software/bash/'>Bash</a> script."
         },
         {
           "name": "Python",
-          "desc": "I have used <a href='https://www.python.org/'>Python</a> both at school and at work. At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I used <a href='https://www.python.org/'>Python</a> as a intermediate language between a full application and a shell script. That is,  <a href='https://www.python.org/'>Python</a> comes in to play when the job is to large for <a href='https://www.gnu.org/software/bash/'>Bash</a> but, to small for <a href='https://isocpp.org/'> C++ </a>. Additonally, <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> is built using <a href='https://scons.org/'>SCons</a> which is a build system like <a href='https://www.gnu.org/software/make/'>Make</a> but, you use <a href='https://www.python.org/'>Python</a> instead of <a href='https://www.gnu.org/software/bash/'>Bash</a>."
+          "desc": "I have used <a href='https://www.python.org/'>Python</a> both at school and at work. During my employment at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I used <a href='https://www.python.org/'>Python</a> as a intermediate language between a full application and a shell script. That is,  <a href='https://www.python.org/'>Python</a> comes in to play when the job is too large for <a href='https://www.gnu.org/software/bash/'>Bash</a> but, too small for <a href='https://isocpp.org/'> C++ </a>. Additonally, <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> is built using <a href='https://scons.org/'>SCons</a> which is a build system like <a href='https://www.gnu.org/software/make/'>Make</a> but, you use <a href='https://www.python.org/'>Python</a> instead of <a href='https://www.gnu.org/software/bash/'>Bash</a>."
         },
         {
           "name": "SCons",
@@ -73,11 +73,11 @@
         },
         {
           "name": "Remote Administration",
-          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> we had a server room in the basement. This room housed the development servers equipped with special telephony hardware. <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> cannot run on a normal computer and must run on these servers. As such I gained valuable experience in administering remote machines via <a href='https://www.openssh.com/'>SSH</a>. Today I simply prefer to do all computing tasks through the terminal making remote administration just as easy as local."
+          "desc": "At <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> there was a server room in the basement. This room housed the development servers equipped with special telephony hardware. <a href='http://www.avst.com/products/cx-c/specifications.asp'>CX-C</a> cannot run on a normal computer and must run on these servers. As such I gained valuable experience in administering remote machines via <a href='https://www.openssh.com/'>SSH</a>. Today I simply prefer to do all computing tasks through the terminal making remote administration just as easy as local."
         },
         {
           "name": "Telephony",
-          "desc": "While working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I gained valuable knowledge in to how, <a href='https://en.wikipedia.org/wiki/Voice_over_IP'>VoIP</a>, and the <a href='https://en.wikipedia.org/wiki/Public_switched_telephone_network'>PSTN</a> work."
+          "desc": "While working at <a href='https://en.wikipedia.org/wiki/AVST'>AVST</a> I gained valuable knowledge as to how, <a href='https://en.wikipedia.org/wiki/Voice_over_IP'>VoIP</a>, and the <a href='https://en.wikipedia.org/wiki/Public_switched_telephone_network'>PSTN</a> work."
         }
       ]
     },
@@ -93,7 +93,7 @@
         },
         {
           "name": "3D Graphics",
-          "desc": "3D graphics started it all. The entire reason I wanted to learn how to program was so that I could make my own game. And that I did, In grade 12 I made a <a href='https://isocpp.org/'> C++ </a> and <a href='https://www.opengl.org/'>OpenGL</a> based 3D Multiplayer first person shooter for the yearly <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a> competition (was the only one who didn't use <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a>). Moving forward I have continued to build my skills, learning various graphics techniques like, Differed Rendering, Screen Space Lighting, and Shadow Mapping. Additionally I have a firm grasp of 3D Math (Linear Algebra). As for formal education, I have taken both 2D, and 3D graphics courses offered by my University to high marks."
+          "desc": "3D graphics started it all. The entire reason I wanted to learn how to program was so that I could make my own game. And that I did, In grade 12 I made a <a href='https://isocpp.org/'> C++ </a> and <a href='https://www.opengl.org/'>OpenGL</a> based 3D Multiplayer first person shooter for the yearly <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a> competition (was the only one who didn't use <a href='https://www.yoyogames.com/gamemaker'>GameMaker</a>). Moving forward I have continued to build my skills, learning various graphics techniques like, Differed Rendering, Screen Space Lighting, and Shadow Mapping. Additionally I have a firm grasp of 3D Math (Linear Algebra). As for formal education, I have taken both 2D, and 3D graphics courses offered by my University, to high marks."
         },
         {
           "name": "Golang",
@@ -109,7 +109,7 @@
         },
         {
           "name": "AVR",
-          "desc": "When you dont want the extra capability and complexity of an <a href='https://www.arm.com/'>ARM</a> chip, an <a href='https://en.wikipedia.org/wiki/AVR_microcontrollers'>AVR</a> chip can be a good choice. I use these chips a lot in my Maker projects (like <a href='https://github.com/CanadianCommander/BuckConverter'>My Buck Converter</a>). Mostly the <a href='https://www.sparkfun.com/datasheets/Components/SMD/ATMega328.pdf'>atmeg328p</a> due to its low price (I go through them like potato chips)."
+          "desc": "When you don't want the extra capability and complexity of an <a href='https://www.arm.com/'>ARM</a> chip, an <a href='https://en.wikipedia.org/wiki/AVR_microcontrollers'>AVR</a> chip can be a good choice. I use these chips a lot in my Maker projects (like <a href='https://github.com/CanadianCommander/BuckConverter'>My Buck Converter</a>). Mostly the <a href='https://www.sparkfun.com/datasheets/Components/SMD/ATMega328.pdf'>atmeg328p</a> due to its low price (I go through them like potato chips)."
         },
         {
           "name": "Unit Testing",
@@ -121,7 +121,7 @@
         },
         {
           "name": "Scala",
-          "desc": "Will taking the Compiler course at my University I decided to write <a href='https://github.com/CanadianCommander/Compilator'>my compiler</a> in <a href='https://www.scala-lang.org/'>Scala</a>. I picked <a href='https://www.scala-lang.org/'>Scala</a> because it is a hybrid object oriented - functional language. Having just done a course on functional programming I was excited to have a language that includes my new favorite features, Pattern Matching, Map, Reduce, and Filter!"
+          "desc": "While taking the Compiler course at my University I decided to write <a href='https://github.com/CanadianCommander/Compilator'>my compiler</a> in <a href='https://www.scala-lang.org/'>Scala</a>. I picked <a href='https://www.scala-lang.org/'>Scala</a> because it is a hybrid object oriented - functional language. Having just done a course on functional programming I was excited to have a language that includes my new favorite features, Pattern Matching, Map, Reduce, and Filter!"
         },
         {
           "name": "Make",
@@ -137,7 +137,7 @@
         },
         {
           "name": "git",
-          "desc": "It should come as no surprise, due to my GitHub activity, that I use <a href='https://git-scm.com/'>git</a>. <a href='https://git-scm.com/'>git</a> is my go to source code management tool. While I have mostly use it alone, I have used it in teams during University group projects."
+          "desc": "It should come as no surprise, due to my GitHub activity, that I use <a href='https://git-scm.com/'>git</a>. <a href='https://git-scm.com/'>git</a> is my go to source code management tool. While I have mostly used it alone, I have used it in teams during University group projects."
         },
         {
           "name": "Web Technologies",
@@ -145,7 +145,7 @@
         },
         {
           "name": "Video Encoding",
-          "desc": "At University I took a course called, \"Multimedia Systems\". This course provided me with the knowledge to understand video encoding and compression, among other things. As the final project for this course me and my friend made a basic (very basic) <a href='https://github.com/CanadianCommander/csc461_project'>live streaming application</a> using VP8/9 and H.264/265."
+          "desc": "At University I took a course called, \"Multimedia Systems\". This course provided me with the knowledge to understand video encoding and compression, among other things. As the final project for this course my friend and I  made a basic (very basic) <a href='https://github.com/CanadianCommander/csc461_project'>live streaming application</a> using VP8/9 and H.264/265."
         },
         {
           "name": "Operating Systems",
@@ -161,7 +161,7 @@
         },
         {
           "name": "JS & jQuery",
-          "desc": "If your doing any thing on the web you really have no choice but to use  <a href='https://www.javascript.com/'>JS</a>. Furthermore, if you are not a mad man you must use <a href='https://jquery.com/'>jQuery</a>, its utility is just to good to ignore. Thus, I have used <a href='https://jquery.com/'>jQuery</a> and <a href='https://www.javascript.com/'>JS</a> to build multiple web sites/applications. For an example see, <a href='https://github.com/CanadianCommander/bbenetti'>the site you're viewing right now</a>."
+          "desc": "If your doing any thing on the web you really have no choice but to use  <a href='https://www.javascript.com/'>JS</a>. Furthermore, if you are not a mad man you must use <a href='https://jquery.com/'>jQuery</a>, its utility is just too good to ignore. Thus, I have used <a href='https://jquery.com/'>jQuery</a> and <a href='https://www.javascript.com/'>JS</a> to build multiple web sites/applications. For an example see, <a href='https://github.com/CanadianCommander/bbenetti'>the site you're viewing right now</a>."
         }
       ]
     },
@@ -173,11 +173,11 @@
       "items": [
         {
           "name": "node.js",
-          "desc": "I know <a href='https://nodejs.org/en/about/'>node.js</a> is very popular. I've been rather indifferent toward <a href='https://nodejs.org/en/about/'>node.js</a>, preferring compiled languages on the server side for their speed. I have however dabbled with <a href='https://nodejs.org/en/about/'>node.js</a>, including <a href='https://angular.io/'>Angular</a>. I have an old <a href='https://web.uvic.ca/calendar2019-01/CDs/SENG/310.html'>SENG310</a> project based on node, <a href='https://github.com/CanadianCommander/seng310_UvicGroupFinder'>UvicGroupFinder</a>, a little to ambitious for the class (was supposed to by a 'fake' mockup). "
+          "desc": "I know <a href='https://nodejs.org/en/about/'>node.js</a> is very popular. I've been rather indifferent toward <a href='https://nodejs.org/en/about/'>node.js</a>, preferring compiled languages on the server side for their speed. I have however dabbled with <a href='https://nodejs.org/en/about/'>node.js</a>, including <a href='https://angular.io/'>Angular</a>. I have an old <a href='https://web.uvic.ca/calendar2019-01/CDs/SENG/310.html'>SENG310</a> project based on node, <a href='https://github.com/CanadianCommander/seng310_UvicGroupFinder'>UvicGroupFinder</a>, a little too ambitious for the class (we where supposed to make a fake mockup). "
         },
         {
           "name": "Pug",
-          "desc": "In the instances that I find my self using <a href='https://nodejs.org/en/about/'>node.js</a>, my go to template language is <a href='https://pugjs.org/api/getting-started.html'>Pug</a> (formally known as Jade)."
+          "desc": "In the instances that I find myself using <a href='https://nodejs.org/en/about/'>node.js</a>, my go to template language is <a href='https://pugjs.org/api/getting-started.html'>Pug</a> (formally known as Jade)."
         },
         {
           "name": "DirectX",
@@ -185,7 +185,7 @@
         },
         {
           "name": "Pure Functional Languages",
-          "desc": "At my University I took, \"<a href='https://web.uvic.ca/calendar2019-01/CDs/CSC/330.html'>CSC 330 Programming Languages</a>\". I'm sure it changes based on the instructor but, when I took it, it should have been called, \"Functional Programming Languages\". This class had a major component on, <a href='https://www.smlnj.org/'>sml</a> a pure functional language quite different from the object oriented languages we are used to seeing."
+          "desc": "At University I took, \"<a href='https://web.uvic.ca/calendar2019-01/CDs/CSC/330.html'>CSC 330 Programming Languages</a>\". I'm sure it changes based on the instructor but, when I took it, it should have been called, \"Functional Programming Languages\". This class had a major component on <a href='https://www.smlnj.org/'>sml</a>, a pure functional language quite different from the object oriented languages we are used to seeing."
         }
       ]
     }
