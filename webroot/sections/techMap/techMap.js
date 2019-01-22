@@ -1,6 +1,7 @@
-const EXPAND_PADDING = '9px 15px 9px 15px'
+const EXPAND_PADDING = '9px 13px 9px 13px'
 const NORMAL_PADDING = '6px  12px 6px  12px'
 const SMALL_PADDING = '5px  10px  5px  10px'
+const LARGE_MARGIN = '2px 3px 5px 3px'
 const NORMAL_MARGIN = '1px 1px  4px  1px'
 const SMALL_MARGIN = '0px 0px 3px 0px'
 
@@ -59,6 +60,7 @@ window.techMapHoverIn = function hoverIn (event) {
     $(event.target).siblings('button').each((i, obj) => {
       if (isClose($(event.target).position().top, $(obj).position().top, 10)) {
         $(obj).css('padding', SMALL_PADDING)
+        $(obj).css('margin', LARGE_MARGIN)
       }
     })
 
